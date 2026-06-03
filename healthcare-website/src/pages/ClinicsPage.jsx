@@ -21,9 +21,9 @@ export default function ClinicsPage() {
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <MapPin className="w-4 h-4" /> Our Locations
             </span>
-            <h1 className="font-display text-5xl font-bold text-white mb-4">5 Clinics Across Mumbai</h1>
+            <h1 className="font-display text-5xl font-bold text-white mb-4">5 Clinics in Shahjahanpur Region</h1>
             <p className="text-accent-200 text-xl max-w-xl mx-auto">
-              Quality healthcare close to where you live. Find your nearest clinic and book an appointment today.
+              Expert gastro care close to where you live — Shahjahanpur, Nigohi, Shahabad, Tilhar & Powayan.
             </p>
           </motion.div>
         </div>
@@ -58,14 +58,20 @@ export default function ClinicsPage() {
                 </div>
 
                 {/* Map */}
+                {/* <div className="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden"> */}
                 <div className="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-                  <iframe
+  <img
+    src={`/images/clinic${clinic.id}.jpg`}
+    alt={clinic.name}
+    className="w-full h-full object-cover"
+  />
+                  {/* <iframe
                     title={`Map - ${clinic.name}`}
                     src={clinic.mapEmbed}
                     className="w-full h-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                  />
+                  /> */}
                   <a
                     href={clinic.mapUrl}
                     target="_blank"
@@ -131,10 +137,10 @@ export default function ClinicsPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Can't find your area? We're expanding!
+              Book Your Appointment Today
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
-              We're opening new clinics soon. In the meantime, teleconsultation is available for all patients.
+              Call +91 7007311392 to book or walk in during OPD hours at your nearest Gastro Clinic 27 location.
             </p>
             <Link to="/appointment" className="btn-primary inline-flex items-center gap-2">
               <Calendar className="w-5 h-5" /> Book Online Consultation

@@ -20,10 +20,11 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
-              <Award className="w-4 h-4" /> Senior General Physician
+              <Award className="w-4 h-4" /> Gastro Surgeon & Endoscopist · Gastro Clinic 27
             </span>
             <h1 className="font-display text-5xl font-bold text-white mb-4">{doctorInfo.name}</h1>
-            <p className="text-primary-200 text-xl mb-8">{doctorInfo.title} · {doctorInfo.experience}+ Years of Excellence</p>
+            <p className="text-primary-200 text-xl mb-2">{doctorInfo.title}</p>
+            <p className="text-accent-300 text-sm mb-8">Associated — Dr. Ram Manohar Lohia Hospital, New Delhi</p>
             <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
               <Calendar className="w-5 h-5" /> Book Appointment
             </Link>
@@ -39,11 +40,16 @@ export default function AboutPage() {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-1">
               <div className="card overflow-hidden">
                 <div className="bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-950 dark:to-accent-950 p-10 text-center">
-                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center mx-auto mb-4 shadow-2xl">
-                    <span className="font-display text-5xl font-bold text-white">RS</span>
+                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center mx-auto mb-4 shadow-2xl overflow-hidden">
+                    <img
+                      src="/images/doctor.jpg"
+                      alt="Dr. Aakash – Gastro Surgeon"
+                      className="w-full h-full object-cover rounded-full"
+                    />
                   </div>
                   <h2 className="font-display text-xl font-bold text-gray-900 dark:text-white">{doctorInfo.name}</h2>
-                  <p className="text-primary-600 dark:text-primary-400 text-sm mt-1">{doctorInfo.title}</p>
+                  <p className="text-primary-600 dark:text-primary-400 text-sm mt-1">{doctorInfo.specialization}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">RML Hospital, New Delhi</p>
                   <div className="flex justify-center gap-1 mt-3">
                     {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                   </div>
@@ -51,9 +57,9 @@ export default function AboutPage() {
                 <div className="p-6 space-y-3">
                   {[
                     { label: 'Experience', value: `${doctorInfo.experience}+ Years` },
-                    { label: 'Patients', value: '50,000+' },
+                    { label: 'Patients', value: '1000+' },
                     { label: 'Clinics', value: '5 Locations' },
-                    { label: 'Specialization', value: 'General Medicine' },
+                    { label: 'Specialization', value: 'Gastroenterology' },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-800 last:border-0">
                       <span className="text-sm text-gray-500 dark:text-gray-400">{label}</span>
@@ -67,10 +73,10 @@ export default function AboutPage() {
             {/* Bio Text */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-2">
               <span className="section-tag"><BookOpen className="w-4 h-4" /> Biography</span>
-              <h2 className="font-display text-3xl font-bold text-gray-900 dark:text-white mb-6">A Lifetime Dedicated to Healthcare</h2>
+              <h2 className="font-display text-3xl font-bold text-gray-900 dark:text-white mb-6">Bringing Expert Gastro Care to Every Doorstep</h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">{doctorInfo.bio}</p>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                His patient-first approach, combined with a strong belief in preventive medicine, has earned him the trust of thousands of families across Mumbai. Whether it's a routine checkup or managing a complex chronic condition, Dr. Sharma brings the same level of dedication and expertise to every consultation.
+                Dr. Aakash's patient-first approach and belief in making quality healthcare affordable have earned him the trust of thousands across Shahjahanpur and surrounding districts. Whether it's a routine endoscopy, laparoscopic surgery, or managing a chronic digestive condition, he brings the same level of dedication and expertise to every patient.
               </p>
 
               {/* Specialties */}

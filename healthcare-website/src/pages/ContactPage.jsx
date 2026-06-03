@@ -166,7 +166,7 @@ export default function ContactPage() {
             {/* Map */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="card overflow-hidden">
               <div className="bg-gray-100 dark:bg-gray-800 p-4">
-                <h3 className="font-display font-semibold text-gray-800 dark:text-white">Primary Clinic – Andheri West</h3>
+                <h3 className="font-display font-semibold text-gray-800 dark:text-white">Primary Clinic – Shahjahanpur</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{clinics[0].address}</p>
               </div>
               <iframe

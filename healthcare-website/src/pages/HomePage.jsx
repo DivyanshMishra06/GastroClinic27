@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Phone, Calendar, Star, ArrowRight, Shield, Award, Users, Clock,
-  ChevronRight, Heart, Activity, Stethoscope, CheckCircle
+  ChevronRight, Heart, Activity, Stethoscope, CheckCircle, MapPin, BookOpen
 } from 'lucide-react';
 import { doctorInfo, testimonials, services } from '../data';
 
@@ -21,6 +21,45 @@ const StatCard = ({ icon: Icon, value, label, color }) => (
   </motion.div>
 );
 
+const clinicPhotos = [
+  { src: '/images/clinic1.jpg', label: 'Shahjahanpur Clinic' },
+  { src: '/images/clinic2.jpg', label: 'Hamjapur Clinic' },
+  { src: '/images/clinic3.jpg', label: 'Tilhar Clinic' },
+];
+
+const educationResources = [
+  {
+    img: '/images/digestive-system.jpg',
+    title: 'Digestive System Anatomy',
+    desc: 'Complete anatomy of the gastrointestinal tract explained',
+    tag: 'Education',
+  },
+  {
+    img: '/images/bristol-chart.jpg',
+    title: 'Bristol Stool Chart',
+    desc: 'Understand what your stool says about your gut health',
+    tag: 'Diagnosis',
+  },
+  {
+    img: '/images/ibs-diet.jpg',
+    title: 'IBS Diet Guide',
+    desc: 'What to eat and avoid if you have Irritable Bowel Syndrome',
+    tag: 'Nutrition',
+  },
+  {
+    img: '/images/rda-macro.jpg',
+    title: 'Macro Nutrients RDA',
+    desc: 'Recommended daily allowance of carbs, protein, fat & more',
+    tag: 'Nutrition',
+  },
+  {
+    img: '/images/rda-micro.jpg',
+    title: 'Trace & Micro Nutrients',
+    desc: 'Daily requirements of vitamins, minerals & micronutrients',
+    tag: 'Nutrition',
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
@@ -33,7 +72,6 @@ export default function HomePage() {
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent-600/20 blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/5" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5" />
-          {/* floating icons */}
           {[
             { icon: Heart, x: '10%', y: '20%', size: 20, delay: 0 },
             { icon: Activity, x: '85%', y: '15%', size: 24, delay: 1 },
@@ -57,7 +95,11 @@ export default function HomePage() {
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
             <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Accepting New Patients · 5 Clinics Across Mumbai
+              OPD Available · 5 Locations in Shahjahanpur Region
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="mb-3">
+              <span className="text-accent-400 text-lg font-semibold tracking-wide">Gastro Clinic 27</span>
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="font-display text-4xl sm:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4">
@@ -65,7 +107,11 @@ export default function HomePage() {
             </motion.h1>
 
             <motion.p variants={fadeUp} className="text-primary-300 text-lg font-medium mb-3">
-              {doctorInfo.title} · {doctorInfo.experience}+ Years Experience
+              {doctorInfo.title}
+            </motion.p>
+
+            <motion.p variants={fadeUp} className="text-accent-300 text-sm font-medium mb-4">
+              Associated — Dr. Ram Manohar Lohia Hospital, New Delhi
             </motion.p>
 
             <motion.p variants={fadeUp} className="text-2xl sm:text-3xl font-display text-white/90 italic mb-8">
@@ -77,17 +123,17 @@ export default function HomePage() {
                 <Calendar className="w-5 h-5" />
                 Book Appointment
               </Link>
-              <a href={`tel:${doctorInfo.phone}`} className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-red-900/30 hover:-translate-y-0.5">
+              <a href={`tel:${doctorInfo.phone}`} className="inline-flex items-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-accent-900/30 hover:-translate-y-0.5">
                 <Phone className="w-5 h-5" />
-                Emergency Call
+                Call Now
               </a>
             </motion.div>
 
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-6">
               {[
-                { label: '50,000+ Patients', icon: Users },
-                { label: '22+ Years', icon: Award },
-                { label: '5 Clinics', icon: Stethoscope },
+                { label: '1000+ Patients', icon: Users },
+                { label: '10+ Years', icon: Award },
+                { label: '5 Clinics', icon: MapPin },
               ].map(({ label, icon: Icon }) => (
                 <div key={label} className="flex items-center gap-2 text-white/70 text-sm">
                   <Icon className="w-4 h-4 text-accent-400" />
@@ -97,7 +143,7 @@ export default function HomePage() {
             </motion.div>
           </motion.div>
 
-          {/* Doctor Photo / Illustration Card */}
+          {/* Doctor Photo Card */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
@@ -105,25 +151,27 @@ export default function HomePage() {
             className="relative hidden lg:flex justify-center"
           >
             <div className="relative w-[400px] h-[500px]">
-              {/* Main card */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-primary-700/60 to-primary-900/80 backdrop-blur-sm border border-white/20 overflow-hidden">
-                {/* Avatar placeholder */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center mb-6 shadow-2xl">
-                    <span className="font-display text-6xl font-bold text-white">RS</span>
+                  <div className="w-56 h-56 rounded-2xl overflow-hidden mb-6 shadow-2xl border-2 border-white/20">
+                    <img
+                      src="/images/doctor.jpg"
+                      alt="Dr. Aakash – Gastro Surgeon"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <p className="font-display text-2xl font-bold text-white">{doctorInfo.name}</p>
-                  <p className="text-primary-300 text-sm mt-1">{doctorInfo.specialization}</p>
+                  <p className="text-primary-300 text-sm mt-1 text-center px-4">{doctorInfo.title}</p>
+                  <p className="text-accent-400 text-xs mt-1">Gastro Surgeon & Endoscopist</p>
                   <div className="flex gap-1 mt-3">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-white/60 text-xs mt-1">4.9 / 5 (2,400+ Reviews)</p>
+                  <p className="text-white/60 text-xs mt-1">Trusted by 1000+ Patients</p>
                 </div>
               </div>
 
-              {/* Floating badges */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
@@ -133,8 +181,8 @@ export default function HomePage() {
                   <CheckCircle className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-800 dark:text-white">Verified Doctor</p>
-                  <p className="text-xs text-gray-500">MCI Registered</p>
+                  <p className="text-xs font-semibold text-gray-800 dark:text-white">Verified Surgeon</p>
+                  <p className="text-xs text-gray-500">FMAS · FIAGES</p>
                 </div>
               </motion.div>
 
@@ -147,8 +195,8 @@ export default function HomePage() {
                   <Clock className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-800 dark:text-white">Available Today</p>
-                  <p className="text-xs text-gray-500">6 PM – 9 PM</p>
+                  <p className="text-xs font-semibold text-gray-800 dark:text-white">OPD Today</p>
+                  <p className="text-xs text-gray-500">Call for timings</p>
                 </div>
               </motion.div>
             </div>
@@ -174,10 +222,10 @@ export default function HomePage() {
             className="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-gradient-to-r from-primary-600 to-primary-700 rounded-3xl overflow-hidden"
           >
             {[
-              { icon: Award, value: '22+', label: 'Years of Experience', color: 'bg-white/20 text-white' },
-              { icon: Users, value: '50K+', label: 'Patients Treated', color: 'bg-white/20 text-white' },
-              { icon: Stethoscope, value: '5', label: 'Clinics Available', color: 'bg-white/20 text-white' },
-              { icon: Star, value: '4.9', label: 'Average Rating', color: 'bg-white/20 text-white' },
+              { icon: Award, value: '10+', label: 'Years of Experience', color: 'bg-white/20 text-white' },
+              { icon: Users, value: '1K+', label: 'Patients Treated', color: 'bg-white/20 text-white' },
+              { icon: MapPin, value: '5', label: 'Clinic Locations', color: 'bg-white/20 text-white' },
+              { icon: Star, value: '4.9', label: 'Patient Rating', color: 'bg-white/20 text-white' },
             ].map((stat) => (
               <StatCard key={stat.label} {...stat} />
             ))}
@@ -190,8 +238,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
             <span className="section-tag"><Stethoscope className="w-4 h-4" /> Our Services</span>
-            <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Comprehensive Medical Care</h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">From routine checkups to specialized treatment, we provide holistic healthcare for your entire family.</p>
+            <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Expert Gastro Care</h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">From endoscopy and laparoscopic surgery to IBS management and liver care — all under one roof.</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -206,7 +254,7 @@ export default function HomePage() {
                 className="card p-6 hover:shadow-md transition-shadow group cursor-pointer"
               >
                 <div className={`w-12 h-12 rounded-xl ${s.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Stethoscope className="w-6 h-6" />
+                  <Activity className="w-6 h-6" />
                 </div>
                 <h3 className="font-display font-semibold text-gray-900 dark:text-white mb-2">{s.title}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">{s.description}</p>
@@ -222,14 +270,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ───── ABOUT PREVIEW ───── */}
+      {/* ───── CLINIC GALLERY ───── */}
       <section className="py-20 bg-white dark:bg-gray-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
+            <span className="section-tag"><MapPin className="w-4 h-4" /> Our Clinics</span>
+            <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Modern Clinic Infrastructure</h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Clean, well-equipped clinics across 5 locations in Shahjahanpur region for your convenience.</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {clinicPhotos.map((photo, i) => (
+              <motion.div
+                key={photo.src}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                variants={fadeUp}
+                className="relative rounded-2xl overflow-hidden aspect-video shadow-lg group"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.label}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <p className="absolute bottom-4 left-4 text-white font-semibold text-sm">{photo.label}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link to="/clinics" className="btn-outline inline-flex items-center gap-2">
+              View All Locations <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ───── ABOUT PREVIEW ───── */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <span className="section-tag"><Award className="w-4 h-4" /> About the Doctor</span>
               <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                22 Years of Healing, <span className="gradient-text">One Patient at a Time</span>
+                Expert Gastro Care, <span className="gradient-text">Close to Home</span>
               </h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">{doctorInfo.bio}</p>
               <div className="grid grid-cols-2 gap-4 mb-8">
@@ -255,24 +342,64 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-950 dark:to-accent-950 rounded-3xl p-8">
-                <div className="text-center mb-6">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center mx-auto mb-4 shadow-2xl">
-                    <span className="font-display text-4xl font-bold text-white">RS</span>
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="/images/doctor.jpg"
+                  alt="Dr. Aakash – Consultation"
+                  className="w-full h-auto object-cover"
+                  style={{ maxHeight: '480px', objectFit: 'cover' }}
+                />
+                <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-primary-950 dark:to-accent-950 p-6">
+                  <div className="flex flex-wrap gap-2">
+                    {doctorInfo.specialties.map((spec) => (
+                      <span key={spec} className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-primary-700 dark:text-primary-300 text-xs font-medium px-3 py-1.5 rounded-xl shadow-sm">
+                        <CheckCircle className="w-3 h-3" /> {spec}
+                      </span>
+                    ))}
                   </div>
-                  <h3 className="font-display text-xl font-bold text-gray-900 dark:text-white">{doctorInfo.name}</h3>
-                  <p className="text-primary-600 dark:text-primary-400 text-sm">{doctorInfo.title}</p>
-                </div>
-                <div className="space-y-3">
-                  {doctorInfo.specialties.map((spec) => (
-                    <div key={spec} className="flex items-center gap-3 bg-white/60 dark:bg-gray-800/60 rounded-xl px-4 py-2.5">
-                      <div className="w-2 h-2 rounded-full bg-primary-500" />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-200">{spec}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ───── EDUCATIONAL RESOURCES ───── */}
+      <section className="py-20 bg-white dark:bg-gray-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
+            <span className="section-tag"><BookOpen className="w-4 h-4" /> Health Education</span>
+            <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Learn About Your Gut Health</h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Educational resources from Gastro Clinic 27 to help you understand digestive health better.</p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {educationResources.map((resource, i) => (
+              <motion.div
+                key={resource.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                variants={fadeUp}
+                className="card overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="relative overflow-hidden bg-gray-100 dark:bg-gray-800" style={{ height: '220px' }}>
+                  <img
+                    src={resource.img}
+                    alt={resource.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    {resource.tag}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display font-bold text-gray-900 dark:text-white mb-2">{resource.title}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{resource.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -283,7 +410,7 @@ export default function HomePage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
             <span className="section-tag"><Star className="w-4 h-4" /> Patient Reviews</span>
             <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Trusted by Thousands</h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Real stories from real patients who found better health with Dr. Sharma.</p>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Real stories from patients who found better digestive health with Dr. Aakash.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -329,10 +456,13 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to Take Control of Your Health?
+              Gut Problem? Don't Ignore It.
             </h2>
-            <p className="text-primary-200 mb-8 max-w-xl mx-auto">
-              Book your appointment today and experience compassionate, expert healthcare at any of our 5 convenient locations.
+            <p className="text-primary-200 mb-2 max-w-xl mx-auto">
+              Book your appointment with Dr. Aakash today and get expert gastro care at affordable rates.
+            </p>
+            <p className="text-accent-300 text-sm mb-8 font-medium">
+              स्वस्थ पाचन, बेहतर जीवन · Shahjahanpur | Nigohi | Shahabad | Tilhar | Powayan
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
@@ -341,7 +471,7 @@ export default function HomePage() {
               </Link>
               <a href={`tel:${doctorInfo.phone}`} className="inline-flex items-center gap-2 border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all hover:-translate-y-0.5">
                 <Phone className="w-5 h-5" />
-                Call Us Now
+                {doctorInfo.phone}
               </a>
             </div>
           </motion.div>

@@ -19,7 +19,7 @@ export default function TestimonialsPage() {
             </span>
             <h1 className="font-display text-5xl font-bold text-white mb-4">What Patients Say</h1>
             <p className="text-primary-200 text-xl max-w-xl mx-auto">
-              Thousands of families trust Dr. Sharma for their health. Here are some of their stories.
+              Thousands of families trust Dr. Aakash for their health. Here are some of their stories.
             </p>
           </motion.div>
         </div>
@@ -31,7 +31,7 @@ export default function TestimonialsPage() {
           {[
             { value: '4.9 / 5', label: 'Average Rating', sub: 'Based on 2,400+ reviews' },
             { value: '98%', label: 'Recommend Doctor', sub: 'Would refer to family & friends' },
-            { value: '50,000+', label: 'Happy Patients', sub: 'Treated over 22 years' },
+            { value: '500+', label: 'Happy Patients', sub: 'Treated over 22 years' },
           ].map((s) => (
             <div key={s.label}>
               <p className="font-display text-3xl lg:text-4xl font-bold text-primary-600 dark:text-primary-400">{s.value}</p>
@@ -104,7 +104,7 @@ export default function TestimonialsPage() {
               Share Your Experience
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Your feedback helps other patients find the right care. We'd love to hear about your experience with Dr. Sharma.
+              Your feedback helps other patients find the right care. We'd love to hear about your experience with Dr. Aakash.
             </p>
             <a
               href="https://g.page/r/review"

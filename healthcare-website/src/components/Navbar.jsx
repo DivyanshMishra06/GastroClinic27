@@ -32,11 +32,11 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Emergency Banner */}
-      <div className="bg-gradient-to-r from-red-600 to-rose-600 text-white text-center py-2 px-4 text-sm font-medium">
-        <span className="animate-pulse mr-2">🚨</span>
-        24/7 Emergency Available at Andheri & Navi Mumbai Clinics — Call{' '}
-        <a href={`tel:${doctorInfo.phone}`} className="underline font-bold hover:text-red-100 transition-colors">
+      {/* Info Banner */}
+      <div className="bg-gradient-to-r from-primary-700 to-accent-700 text-white text-center py-2 px-4 text-sm font-medium">
+        <span className="mr-2">📍</span>
+        OPD: Shahjahanpur (Tue) · Tilhar · Nigohi · Shahabad · Powayan — Book:{' '}
+        <a href={`tel:${doctorInfo.phone}`} className="underline font-bold hover:text-primary-100 transition-colors">
           {doctorInfo.phone}
         </a>
       </div>
@@ -53,14 +53,20 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:scale-105 transition-transform">
-                <Stethoscope className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
+              <div className="relative w-10 h-10 lg:w-12 lg:h-12 rounded-xl overflow-hidden bg-gradient-to-br from-primary-500 to-primary-700 shadow-lg shadow-primary-500/20 group-hover:scale-105 transition-transform flex items-center justify-center">
+                <span className="text-white text-xs font-bold select-none">G27</span>
+                <img
+                  src="/images/logo.svg"
+                  alt="Gastro Clinic 27"
+                  className="absolute inset-0 w-full h-full object-contain p-1"
+                  onError={e => { e.currentTarget.style.display = 'none'; }}
+                />
               </div>
               <div>
                 <p className="font-display font-bold text-gray-900 dark:text-white text-sm lg:text-base leading-tight">
-                  Dr. Rajesh Sharma
+                  Gastro Clinic 27
                 </p>
-                <p className="text-xs text-primary-600 dark:text-primary-400 font-medium">General Physician</p>
+                <p className="text-xs text-primary-600 dark:text-primary-400 font-medium">Dr. Aakash · Gastro Surgeon</p>
               </div>
             </Link>
 

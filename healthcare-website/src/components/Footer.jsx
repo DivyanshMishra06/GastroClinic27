@@ -13,16 +13,22 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
-                <Stethoscope className="w-6 h-6 text-white" />
+              <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center overflow-hidden">
+                <span className="text-white text-xs font-bold select-none">G27</span>
+                <img
+                  src="/images/logo.svg"
+                  alt="Gastro Clinic 27"
+                  className="absolute inset-0 w-full h-full object-contain p-1"
+                  onError={e => { e.currentTarget.style.display = 'none'; }}
+                />
               </div>
               <div>
-                <p className="font-display font-bold text-white text-base leading-tight">Dr. Rajesh Sharma</p>
-                <p className="text-xs text-primary-400 font-medium">General Physician</p>
+                <p className="font-display font-bold text-white text-base leading-tight">Gastro Clinic 27</p>
+                <p className="text-xs text-primary-400 font-medium">Dr. Aakash · Gastro Surgeon</p>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-6">
-              Providing trusted, compassionate healthcare to families across Mumbai for over 22 years. Your health, our priority.
+              Bringing specialized gastroenterology care to Shahjahanpur and surrounding regions. Better Digestion, Better Life.
             </p>
             <div className="flex gap-3">
               {[
@@ -74,14 +80,14 @@ export default function Footer() {
             <h4 className="font-display font-semibold text-white text-base mb-5">Services</h4>
             <ul className="space-y-3">
               {[
-                'General Checkup',
-                'Fever Treatment',
-                'Diabetes Management',
-                'Blood Pressure Monitoring',
-                'Health Consultation',
-                'Preventive Care',
-                'Vaccination',
-                'Family Healthcare',
+                'GI Endoscopy',
+                'Laparoscopic Surgery',
+                'Gallbladder Stone',
+                'Piles & Fissure',
+                'IBS & Colitis',
+                'Liver & Pancreas',
+                'Hernia Surgery',
+                'Cancer Screening',
               ].map((service) => (
                 <li key={service}>
                   <Link
@@ -128,9 +134,10 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-primary-400 mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-xs text-gray-500 mb-0.5">Clinic Hours</p>
-                  <p className="text-sm text-gray-300">Mon–Sat: 9 AM – 9 PM</p>
-                  <p className="text-sm text-gray-300">Sun: 10 AM – 12 PM</p>
+                  <p className="text-xs text-gray-500 mb-0.5">OPD Schedule</p>
+                  <p className="text-sm text-gray-300">Shahjahanpur: Every Tuesday</p>
+                  <p className="text-sm text-gray-300">10:00 AM – 1:00 PM</p>
+                  <p className="text-sm text-gray-300 mt-1">Other locations: Call for schedule</p>
                 </div>
               </li>
             </ul>
@@ -142,7 +149,7 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-500">
-            © {year} Dr. Rajesh Sharma. All rights reserved. | Reg. No: MH-2001-12345
+            © {year} Gastro Clinic 27 · Dr. Aakash (MBBS, MS, DNB, FMAS, FIAGES). All rights reserved.
           </p>
           <div className="flex gap-4">
             <a href="#" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>

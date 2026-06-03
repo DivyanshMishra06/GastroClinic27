@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { services } from '../data';
 
-const iconMap = { Stethoscope, Thermometer, Activity, Heart, MessageCircle, Shield, Syringe, Users };
+const iconMap = { Stethoscope, Thermometer, Activity, Heart, MessageCircle, Shield, Syringe, Users, CheckCircle };
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -74,15 +74,15 @@ export default function ServicesPage() {
       <section className="py-20 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
-            <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Choose Dr. Sharma?</h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">We go beyond treating symptoms to provide holistic, personalized care.</p>
+            <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Choose Gastro Clinic 27?</h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Expert gastroenterology care at affordable rates, close to home.</p>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Evidence-Based Treatment', desc: 'Every diagnosis and treatment is backed by the latest medical research and guidelines.', icon: Shield, color: 'bg-blue-100 dark:bg-blue-950 text-blue-600' },
-              { title: 'Personalized Care', desc: 'We understand each patient is unique. Treatment plans are customized for your specific needs.', icon: Heart, color: 'bg-red-100 dark:bg-red-950 text-red-600' },
-              { title: 'Advanced Diagnostics', desc: 'State-of-the-art diagnostic equipment for accurate and timely results at all clinics.', icon: Activity, color: 'bg-purple-100 dark:bg-purple-950 text-purple-600' },
-              { title: 'Preventive Focus', desc: 'We believe in preventing diseases before they occur through proactive health management.', icon: CheckCircle, color: 'bg-green-100 dark:bg-green-950 text-green-600' },
+              { title: 'Expert Laparoscopic Surgeon', desc: 'FMAS & FIAGES certified — performing advanced laparoscopic surgeries with minimal scarring and faster recovery.', icon: Shield, color: 'bg-blue-100 dark:bg-blue-950 text-blue-600' },
+              { title: 'Affordable Gastro Care', desc: 'Quality specialized gastroenterology care at rates accessible to everyone in the Shahjahanpur region.', icon: Heart, color: 'bg-red-100 dark:bg-red-950 text-red-600' },
+              { title: 'Advanced Endoscopy', desc: 'Diagnostic and therapeutic endoscopy & colonoscopy for accurate diagnosis of all digestive conditions.', icon: Activity, color: 'bg-purple-100 dark:bg-purple-950 text-purple-600' },
+              { title: 'Diet & Lifestyle Guidance', desc: 'Personalized diet plans for IBS, fatty liver, post-surgery recovery, and other digestive conditions.', icon: CheckCircle, color: 'bg-green-100 dark:bg-green-950 text-green-600' },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
@@ -103,8 +103,8 @@ export default function ServicesPage() {
       <section className="py-16 bg-gradient-to-r from-primary-600 to-primary-800">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="font-display text-3xl font-bold text-white mb-4">Start Your Health Journey Today</h2>
-            <p className="text-primary-200 mb-8">Book a consultation and let Dr. Sharma guide you to better health.</p>
+            <h2 className="font-display text-3xl font-bold text-white mb-4">Start Your Gut Health Journey Today</h2>
+            <p className="text-primary-200 mb-8">Book a consultation with Dr. Aakash and get expert gastro care close to home.</p>
             <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
               Book Appointment <ArrowRight className="w-5 h-5" />
             </Link>
