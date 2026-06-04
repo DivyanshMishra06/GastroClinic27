@@ -19,7 +19,7 @@ export default function TestimonialsPage() {
             </span>
             <h1 className="font-display text-5xl font-bold text-white mb-4">What Patients Say</h1>
             <p className="text-primary-200 text-xl max-w-xl mx-auto">
-              Thousands of families trust Dr. Aakash for their health. Here are some of their stories.
+              Thousands of families trust Dr. Vayu for their health. Here are some of their stories.
             </p>
           </motion.div>
         </div>
@@ -104,7 +104,7 @@ export default function TestimonialsPage() {
               Share Your Experience
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Your feedback helps other patients find the right care. We'd love to hear about your experience with Dr. Aakash.
+              Your feedback helps other patients find the right care. We'd love to hear about your experience with Dr. Vayu.
             </p>
             <a
               href="https://g.page/r/review"

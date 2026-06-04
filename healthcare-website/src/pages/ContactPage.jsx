@@ -84,7 +84,7 @@ export default function ContactPage() {
                 color: 'bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400',
               },
               {
-                icon: Mail, title: 'Email Us', value: 'dr.rajesh@healthcare.com',
+                icon: Mail, title: 'Email Us', value: 'dr.vayu@healthcare.com',
                 sub: 'We reply within 24 hours', href: `mailto:${doctorInfo.email}`,
                 color: 'bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400',
               },

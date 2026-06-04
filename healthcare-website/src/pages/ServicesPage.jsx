@@ -104,7 +104,7 @@ export default function ServicesPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl font-bold text-white mb-4">Start Your Gut Health Journey Today</h2>
-            <p className="text-primary-200 mb-8">Book a consultation with Dr. Aakash and get expert gastro care close to home.</p>
+            <p className="text-primary-200 mb-8">Book a consultation with Dr. Vayu and get expert gastro care close to home.</p>
             <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
               Book Appointment <ArrowRight className="w-5 h-5" />
             </Link>

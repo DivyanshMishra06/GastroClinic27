@@ -156,7 +156,7 @@ export default function HomePage() {
                   <div className="w-56 h-56 rounded-2xl overflow-hidden mb-6 shadow-2xl border-2 border-white/20">
                     <img
                       src="/images/doctor.jpg"
-                      alt="Dr. Aakash – Gastro Surgeon"
+                      alt="Dr. Vayu – Gastro Surgeon"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -345,7 +345,7 @@ export default function HomePage() {
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/doctor.jpg"
-                  alt="Dr. Aakash – Consultation"
+                  alt="Dr. Vayu – Consultation"
                   className="w-full h-auto object-cover"
                   style={{ maxHeight: '480px', objectFit: 'cover' }}
                 />
@@ -410,7 +410,7 @@ export default function HomePage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
             <span className="section-tag"><Star className="w-4 h-4" /> Patient Reviews</span>
             <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Trusted by Thousands</h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Real stories from patients who found better digestive health with Dr. Aakash.</p>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Real stories from patients who found better digestive health with Dr. Vayu.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -459,7 +459,7 @@ export default function HomePage() {
               Gut Problem? Don't Ignore It.
             </h2>
             <p className="text-primary-200 mb-2 max-w-xl mx-auto">
-              Book your appointment with Dr. Aakash today and get expert gastro care at affordable rates.
+              Book your appointment with Dr. Vayu today and get expert gastro care at affordable rates.
             </p>
             <p className="text-accent-300 text-sm mb-8 font-medium">
               स्वस्थ पाचन, बेहतर जीवन · Shahjahanpur | Nigohi | Shahabad | Tilhar | Powayan

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun, Phone, Stethoscope } from 'lucide-react';
+import { Menu, X, Moon, Sun, Phone } from 'lucide-react';
 import { useDarkMode } from '../hooks/useDarkMode';
 import { doctorInfo } from '../data';
 
@@ -66,7 +66,7 @@ export default function Navbar() {
                 <p className="font-display font-bold text-gray-900 dark:text-white text-sm lg:text-base leading-tight">
                   Gastro Clinic 27
                 </p>
-                <p className="text-xs text-primary-600 dark:text-primary-400 font-medium">Dr. Aakash · Gastro Surgeon</p>
+                <p className="text-xs text-primary-600 dark:text-primary-400 font-medium">Dr. Vayu · Gastro Surgeon</p>
               </div>
             </Link>
 

@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="font-display font-bold text-white text-base leading-tight">Gastro Clinic 27</p>
-                <p className="text-xs text-primary-400 font-medium">Dr. Aakash · Gastro Surgeon</p>
+                <p className="text-xs text-primary-400 font-medium">Dr. Vayu · Gastro Surgeon</p>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-6">
@@ -149,7 +149,7 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-500">
-            © {year} Gastro Clinic 27 · Dr. Aakash (MBBS, MS, DNB, FMAS, FIAGES). All rights reserved.
+            © {year} Gastro Clinic 27 · Dr. Vayu (MBBS, MS, DNB, FMAS, FIAGES). All rights reserved.
           </p>
           <div className="flex gap-4">
             <a href="#" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>

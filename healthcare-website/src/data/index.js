@@ -1,6 +1,6 @@
 // Doctor Information – Gastro Clinic 27
 export const doctorInfo = {
-  name: "Dr. Aakash",
+  name: "Dr. Vayu",
   title: "MBBS, MS, DNB, FMAS, FIAGES",
   specialization: "Gastro Surgeon & Endoscopist",
   experience: 10,
@@ -11,7 +11,7 @@ export const doctorInfo = {
   photo: "/images/doctor.jpg",
   tagline: "Better Digestion, Better Life",
   taglineHindi: "स्वस्थ पाचन, बेहतर जीवन",
-  bio: "Dr. Aakash is a distinguished Gastro Surgeon and Endoscopist associated with Dr. Ram Manohar Lohia Hospital, New Delhi. With advanced qualifications including MBBS, MS, DNB, FMAS, and FIAGES, he specializes in laparoscopic surgery, gastrointestinal endoscopy, and comprehensive digestive health care. Through Gastro Clinic 27, he brings specialized gastroenterology expertise to the people of Shahjahanpur and surrounding regions at affordable rates — making quality gastro care accessible to all.",
+  bio: "Dr. Vayu is a distinguished Gastro Surgeon and Endoscopist associated with Dr. Ram Manohar Lohia Hospital, New Delhi. With advanced qualifications including MBBS, MS, DNB, FMAS, and FIAGES, he specializes in laparoscopic surgery, gastrointestinal endoscopy, and comprehensive digestive health care. Through Gastro Clinic 27, he brings specialized gastroenterology expertise to the people of Shahjahanpur and surrounding regions at affordable rates — making quality gastro care accessible to all.",
   shortBio: "Gastro Surgeon & Endoscopist associated with Dr. RML Hospital, New Delhi. Bringing expert digestive care to Shahjahanpur region.",
   qualifications: [
     { degree: "MBBS", institution: "Government Medical College, U.P.", year: "2008" },
@@ -201,7 +201,7 @@ export const testimonials = [
     age: 52,
     location: "Shahjahanpur",
     rating: 5,
-    review: "Dr. Aakash operated on my gallbladder stones laparoscopically. I was back home the same day and fully recovered within a week. Excellent surgeon with very affordable charges. Highly recommended!",
+    review: "Dr. Vayu operated on my gallbladder stones laparoscopically. I was back home the same day and fully recovered within a week. Excellent surgeon with very affordable charges. Highly recommended!",
     service: "Gallbladder Surgery",
     date: "November 2024",
   },
@@ -211,7 +211,7 @@ export const testimonials = [
     age: 45,
     location: "Tilhar",
     rating: 5,
-    review: "I had been suffering from piles for years. Dr. Aakash treated me with a minimally invasive procedure and I had no pain after two days. Gastro Clinic 27 is a blessing for our area.",
+    review: "I had been suffering from piles for years. Dr. Vayu treated me with a minimally invasive procedure and I had no pain after two days. Gastro Clinic 27 is a blessing for our area.",
     service: "Piles Treatment",
     date: "October 2024",
   },
@@ -221,7 +221,7 @@ export const testimonials = [
     age: 38,
     location: "Shahabad",
     rating: 5,
-    review: "I visited for persistent stomach pain and acidity. After a proper endoscopy, Dr. Aakash diagnosed a stomach ulcer that other doctors had missed. Treatment was very effective. Thank you Doctor!",
+    review: "I visited for persistent stomach pain and acidity. After a proper endoscopy, Dr. Vayu diagnosed a stomach ulcer that other doctors had missed. Treatment was very effective. Thank you Doctor!",
     service: "GI Endoscopy",
     date: "December 2024",
   },
@@ -231,7 +231,7 @@ export const testimonials = [
     age: 60,
     location: "Nigohi",
     rating: 5,
-    review: "My husband was diagnosed with fatty liver and we were very worried. Dr. Aakash explained everything clearly and prescribed the right treatment. His approach is very patient-friendly and costs are very reasonable.",
+    review: "My husband was diagnosed with fatty liver and we were very worried. Dr. Vayu explained everything clearly and prescribed the right treatment. His approach is very patient-friendly and costs are very reasonable.",
     service: "Liver Disorder",
     date: "September 2024",
   },
@@ -241,7 +241,7 @@ export const testimonials = [
     age: 29,
     location: "Powayan",
     rating: 5,
-    review: "I suffered from IBS for 3 years. Dr. Aakash gave me proper diet guidance and medication. Within 2 months I was feeling completely normal. The IBS diet chart from Gastro Clinic 27 is very helpful!",
+    review: "I suffered from IBS for 3 years. Dr. Vayu gave me proper diet guidance and medication. Within 2 months I was feeling completely normal. The IBS diet chart from Gastro Clinic 27 is very helpful!",
     service: "IBS Management",
     date: "January 2025",
   },
@@ -251,7 +251,7 @@ export const testimonials = [
     age: 34,
     location: "Shahjahanpur",
     rating: 5,
-    review: "Got my hernia operated laparoscopically by Dr. Aakash. The surgery was smooth and recovery was fast. Very professional and clean clinic setup. Would recommend Gastro Clinic 27 to everyone.",
+    review: "Got my hernia operated laparoscopically by Dr. Vayu. The surgery was smooth and recovery was fast. Very professional and clean clinic setup. Would recommend Gastro Clinic 27 to everyone.",
     service: "Hernia Surgery",
     date: "December 2024",
   },
@@ -260,35 +260,35 @@ export const testimonials = [
 // FAQ Data
 export const faqs = [
   {
-    q: "How do I book an appointment with Dr. Aakash?",
+    q: "How do I book an appointment with Dr. Vayu?",
     a: "You can call or WhatsApp us at +91 7007311392 to book an appointment. Walk-in patients are also welcome during OPD hours. Check individual clinic timings for your nearest location.",
   },
   {
     q: "What are the consultation charges at Gastro Clinic 27?",
-    a: "Consultation starts at very affordable rates. Dr. Aakash believes in making quality gastro care accessible to all. Call us at 7007311392 for current fee details.",
+    a: "Consultation starts at very affordable rates. Dr. Vayu believes in making quality gastro care accessible to all. Call us at 7007311392 for current fee details.",
   },
   {
     q: "Which days is the OPD available in Shahjahanpur?",
-    a: "Dr. Aakash visits Shahjahanpur every Tuesday from 10:00 AM to 1:00 PM. For other locations, please call 7007311392 for the current schedule.",
+    a: "Dr. Vayu visits Shahjahanpur every Tuesday from 10:00 AM to 1:00 PM. For other locations, please call 7007311392 for the current schedule.",
   },
   {
     q: "Is laparoscopic surgery available at Gastro Clinic 27?",
-    a: "Yes, Dr. Aakash is a qualified laparoscopic surgeon (FMAS, FIAGES) and performs laparoscopic surgeries for gallbladder, hernia, appendix, and other conditions.",
+    a: "Yes, Dr. Vayu is a qualified laparoscopic surgeon (FMAS, FIAGES) and performs laparoscopic surgeries for gallbladder, hernia, appendix, and other conditions.",
   },
   {
     q: "Can I get an endoscopy done at your clinic?",
     a: "Yes, upper GI endoscopy and colonoscopy are available. Please call beforehand to schedule as endoscopy requires prior preparation and fasting.",
   },
   {
-    q: "Does Dr. Aakash treat liver diseases?",
-    a: "Yes, Dr. Aakash treats fatty liver, hepatitis, jaundice, cirrhosis, and other liver and pancreatic disorders. Appropriate tests and referrals are arranged when needed.",
+    q: "Does Dr. Vayu treat liver diseases?",
+    a: "Yes, Dr. Vayu treats fatty liver, hepatitis, jaundice, cirrhosis, and other liver and pancreatic disorders. Appropriate tests and referrals are arranged when needed.",
   },
   {
     q: "What should I do in a gastro emergency?",
-    a: "For severe abdominal pain, vomiting blood, or other emergencies, please call 7007311392 immediately. Dr. Aakash is associated with Dr. RML Hospital New Delhi for critical care needs.",
+    a: "For severe abdominal pain, vomiting blood, or other emergencies, please call 7007311392 immediately. Dr. Vayu is associated with Dr. RML Hospital New Delhi for critical care needs.",
   },
   {
     q: "Does Gastro Clinic 27 provide diet guidance for gut problems?",
-    a: "Yes! Diet is central to gastro health. Dr. Aakash provides personalized diet advice for IBS, colitis, fatty liver, post-surgery recovery, and other conditions.",
+    a: "Yes! Diet is central to gastro health. Dr. Vayu provides personalized diet advice for IBS, colitis, fatty liver, post-surgery recovery, and other conditions.",
   },
 ];

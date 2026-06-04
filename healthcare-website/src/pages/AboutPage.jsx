@@ -43,7 +43,7 @@ export default function AboutPage() {
                   <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center mx-auto mb-4 shadow-2xl overflow-hidden">
                     <img
                       src="/images/doctor.jpg"
-                      alt="Dr. Aakash – Gastro Surgeon"
+                      alt="Dr. Vayu – Gastro Surgeon"
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
@@ -76,7 +76,7 @@ export default function AboutPage() {
               <h2 className="font-display text-3xl font-bold text-gray-900 dark:text-white mb-6">Bringing Expert Gastro Care to Every Doorstep</h2>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">{doctorInfo.bio}</p>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                Dr. Aakash's patient-first approach and belief in making quality healthcare affordable have earned him the trust of thousands across Shahjahanpur and surrounding districts. Whether it's a routine endoscopy, laparoscopic surgery, or managing a chronic digestive condition, he brings the same level of dedication and expertise to every patient.
+                Dr. Vayu's patient-first approach and belief in making quality healthcare affordable have earned him the trust of thousands across Shahjahanpur and surrounding districts. Whether it's a routine endoscopy, laparoscopic surgery, or managing a chronic digestive condition, he brings the same level of dedication and expertise to every patient.
               </p>
 
               {/* Specialties */}
