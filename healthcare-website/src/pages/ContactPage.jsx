@@ -43,30 +43,60 @@ function FAQItem({ faq, idx }) {
   );
 }
 
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 5000);
-    setForm({ name: '', email: '', phone: '', message: '' });
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New Contact Message from ${form.name} – Gastro Clinic 27`,
+          from_name: form.name,
+          name: form.name,
+          email: form.email || 'Not provided',
+          phone: form.phone || 'Not provided',
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+        setForm({ name: '', email: '', phone: '', message: '' });
+        setTimeout(() => setSent(false), 6000);
+      } else {
+        setError('Something went wrong. Please try again or contact us directly.');
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const waMsg = encodeURIComponent("Hello Dr. Sharma, I'd like to enquire about your services.");
+  const waMsg = encodeURIComponent("Hello Gastro Clinic 27, I'd like to enquire about your services.");
 
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 py-24">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-700 py-14 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <MessageSquare className="w-4 h-4" /> Get in Touch
             </span>
-            <h1 className="font-display text-5xl font-bold text-white mb-4">Contact Us</h1>
-            <p className="text-primary-200 text-xl max-w-xl mx-auto">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Contact Us</h1>
+            <p className="text-primary-200 text-base sm:text-xl max-w-xl mx-auto">
               We're here to help. Reach out via phone, email, WhatsApp, or visit any of our 5 clinics.
             </p>
           </motion.div>
@@ -76,15 +106,15 @@ export default function ContactPage() {
       {/* Contact Cards */}
       <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {[
               {
                 icon: Phone, title: 'Call Us', value: doctorInfo.phone,
-                sub: 'Mon–Sat, 9 AM – 9 PM', href: `tel:${doctorInfo.phone}`,
+                sub: 'Mon–Sat, 10 AM – 6 PM', href: `tel:${doctorInfo.phone}`,
                 color: 'bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400',
               },
               {
-                icon: Mail, title: 'Email Us', value: 'dr.vayu@healthcare.com',
+                icon: Mail, title: 'Email Us', value: doctorInfo.email,
                 sub: 'We reply within 24 hours', href: `mailto:${doctorInfo.email}`,
                 color: 'bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400',
               },
@@ -98,7 +128,7 @@ export default function ContactPage() {
               },
               {
                 icon: MapPin, title: 'Visit Us', value: '5 Locations',
-                sub: 'Across Mumbai & Thane', href: '/clinics',
+                sub: 'Across Shahjahanpur Region', href: '/clinics',
                 color: 'bg-orange-50 dark:bg-orange-950/30 text-orange-600 dark:text-orange-400',
               },
             ].map((card, i) => {
@@ -138,6 +168,11 @@ export default function ContactPage() {
                   <span className="text-sm font-medium">Message sent! We'll get back to you within 24 hours.</span>
                 </div>
               )}
+              {error && (
+                <div className="flex items-center gap-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-xl p-4 mb-5">
+                  <span className="text-sm font-medium">{error}</span>
+                </div>
+              )}
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
@@ -157,24 +192,23 @@ export default function ContactPage() {
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Message</label>
                   <textarea className="input-field resize-none" rows={5} placeholder="How can we help you?" required value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
                 </div>
-                <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2 py-4">
-                  <Send className="w-5 h-5" /> Send Message
+                <button type="submit" disabled={loading} className="btn-primary w-full flex items-center justify-center gap-2 py-4 disabled:opacity-60 disabled:cursor-not-allowed">
+                  <Send className="w-5 h-5" />
+                  {loading ? 'Sending…' : 'Send Message'}
                 </button>
               </form>
             </motion.div>
 
-            {/* Map */}
+            {/* Clinic Promo Banner */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="card overflow-hidden">
               <div className="bg-gray-100 dark:bg-gray-800 p-4">
                 <h3 className="font-display font-semibold text-gray-800 dark:text-white">Primary Clinic – Shahjahanpur</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{clinics[0].address}</p>
               </div>
-              <iframe
-                title="Primary Clinic Map"
-                src={clinics[0].mapEmbed}
-                className="w-full h-96 border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+              <img
+                src="/images/clinic1.jpg"
+                alt="Gastro Clinic 27 – Now Open in Shahjahanpur"
+                className="w-full h-auto"
               />
             </motion.div>
           </div>
@@ -185,7 +219,7 @@ export default function ContactPage() {
       <section className="py-20 bg-white dark:bg-gray-950">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
-            <h2 className="font-display text-4xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-500 dark:text-gray-400">Everything you need to know before your visit.</p>
           </motion.div>
           <div className="space-y-3">

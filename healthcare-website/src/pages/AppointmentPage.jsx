@@ -13,6 +13,8 @@ const timeSlots = [
   '12:00 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM',
 ];
 
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+
 const initForm = {
   name: '', mobile: '', age: '', gender: '', clinic: '', date: '', time: '', symptoms: '', type: 'In-Person',
 };
@@ -21,6 +23,8 @@ export default function AppointmentPage() {
   const [form, setForm] = useState(initForm);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const validate = () => {
     const e = {};
@@ -34,11 +38,43 @@ export default function AppointmentPage() {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    setSubmitted(true);
+    setLoading(true);
+    setSubmitError('');
+    const clinicName = clinics.find(c => String(c.id) === form.clinic)?.name || form.clinic;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New Appointment Request from ${form.name} – Gastro Clinic 27`,
+          from_name: form.name,
+          'Consultation Type': form.type,
+          'Patient Name': form.name,
+          'Mobile': form.mobile,
+          'Age': form.age,
+          'Gender': form.gender,
+          'Clinic': clinicName,
+          'Preferred Date': form.date,
+          'Preferred Time': form.time,
+          'Symptoms / Reason': form.symptoms || 'Not provided',
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError('Something went wrong. Please try again or call us directly.');
+      }
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (field, value) => {
@@ -92,14 +128,14 @@ export default function AppointmentPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 py-24">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-700 py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <Calendar className="w-4 h-4" /> Online Booking
             </span>
-            <h1 className="font-display text-5xl font-bold text-white mb-4">Book an Appointment</h1>
-            <p className="text-primary-200 text-xl max-w-xl mx-auto">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Book an Appointment</h1>
+            <p className="text-primary-200 text-base sm:text-xl max-w-xl mx-auto">
               Fill out the form below and we'll confirm your slot within 30 minutes.
             </p>
           </motion.div>
@@ -109,7 +145,7 @@ export default function AppointmentPage() {
       {/* Form */}
       <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <motion.div initial="hidden" animate="visible" variants={fadeUp} className="card p-8 lg:p-12">
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} className="card p-4 sm:p-8 lg:p-12">
             <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white mb-8">Patient Details</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -203,8 +239,15 @@ export default function AppointmentPage() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full py-4 text-base flex items-center justify-center gap-2">
-                <Calendar className="w-5 h-5" /> Confirm Appointment
+              {submitError && (
+                <div className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-xl p-4 text-sm">
+                  {submitError}
+                </div>
+              )}
+
+              <button type="submit" disabled={loading} className="btn-primary w-full py-4 text-base flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                <Calendar className="w-5 h-5" />
+                {loading ? 'Submitting…' : 'Confirm Appointment'}
               </button>
 
               <p className="text-center text-xs text-gray-400">

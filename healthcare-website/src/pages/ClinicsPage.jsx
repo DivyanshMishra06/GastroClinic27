@@ -12,7 +12,7 @@ export default function ClinicsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-accent-800 to-primary-900 py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-accent-800 to-primary-900 py-14 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-64 h-64 rounded-full border-4 border-white" />
         </div>
@@ -21,8 +21,8 @@ export default function ClinicsPage() {
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <MapPin className="w-4 h-4" /> Our Locations
             </span>
-            <h1 className="font-display text-5xl font-bold text-white mb-4">5 Clinics in Shahjahanpur Region</h1>
-            <p className="text-accent-200 text-xl max-w-xl mx-auto">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">5 Clinics in Shahjahanpur Region</h1>
+            <p className="text-accent-200 text-base sm:text-xl max-w-xl mx-auto">
               Expert gastro care close to where you live — Shahjahanpur, Nigohi, Shahabad, Tilhar & Powayan.
             </p>
           </motion.div>
@@ -57,21 +57,14 @@ export default function ClinicsPage() {
                   </div>
                 </div>
 
-                {/* Map */}
-                {/* <div className="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden"> */}
-                <div className="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-  <img
-    src={`/images/clinic${clinic.id}.jpg`}
-    alt={clinic.name}
-    className="w-full h-full object-cover"
-  />
-                  {/* <iframe
-                    title={`Map - ${clinic.name}`}
-                    src={clinic.mapEmbed}
-                    className="w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  /> */}
+                {/* Clinic Poster — full image, no cropping */}
+                <div className="relative overflow-hidden bg-white">
+                  <img
+                    src={`/images/clinic${clinic.id}.jpg`}
+                    alt={clinic.name}
+                    className="w-full object-contain"
+                    style={{ display: 'block' }}
+                  />
                   <a
                     href={clinic.mapUrl}
                     target="_blank"
@@ -140,7 +133,7 @@ export default function ClinicsPage() {
               Book Your Appointment Today
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Call +91 7007311392 to book or walk in during OPD hours at your nearest Gastro Clinic 27 location.
+              Call +91 9958107778 to book or walk in during OPD hours at your nearest Gastro Clinic 27 location.
             </p>
             <Link to="/appointment" className="btn-primary inline-flex items-center gap-2">
               <Calendar className="w-5 h-5" /> Book Online Consultation

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun, Phone } from 'lucide-react';
+import { Menu, X, Moon, Sun, Phone, MapPin } from 'lucide-react';
 import { useDarkMode } from '../hooks/useDarkMode';
 import { doctorInfo } from '../data';
 
@@ -33,9 +33,11 @@ export default function Navbar() {
   return (
     <>
       {/* Info Banner */}
-      <div className="bg-gradient-to-r from-primary-700 to-accent-700 text-white text-center py-2 px-4 text-sm font-medium">
-        <span className="mr-2">📍</span>
-        OPD: Shahjahanpur (Tue) · Tilhar · Nigohi · Shahabad · Powayan — Book:{' '}
+      <div className="bg-gradient-to-r from-primary-700 to-accent-700 text-white text-center py-2 px-4 text-xs sm:text-sm font-medium">
+        <MapPin className="inline w-3.5 h-3.5 mr-1 mb-0.5" />
+        <span className="hidden sm:inline">Mon–Sat: Shahjahanpur · Tue: Shahabad · Thu: Tilhar · Fri: Nigohi · Sun: Powayan — </span>
+        <span className="sm:hidden">OPD at 5 locations — </span>
+        Book:{' '}
         <a href={`tel:${doctorInfo.phone}`} className="underline font-bold hover:text-primary-100 transition-colors">
           {doctorInfo.phone}
         </a>
@@ -53,20 +55,19 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 lg:w-12 lg:h-12 rounded-xl overflow-hidden bg-gradient-to-br from-primary-500 to-primary-700 shadow-lg shadow-primary-500/20 group-hover:scale-105 transition-transform flex items-center justify-center">
-                <span className="text-white text-xs font-bold select-none">G27</span>
-                <img
-                  src="/images/logo.svg"
-                  alt="Gastro Clinic 27"
-                  className="absolute inset-0 w-full h-full object-contain p-1"
-                  onError={e => { e.currentTarget.style.display = 'none'; }}
-                />
-              </div>
+              <div className="relative w-16 h-16 lg:w-20 lg:h-20 group-hover:scale-105 transition-transform">
+  <img
+    src="/images/logo.png"
+    alt="Gastro Clinic 27"
+    className="w-full h-full object-contain"
+  />
+</div>
+
               <div>
                 <p className="font-display font-bold text-gray-900 dark:text-white text-sm lg:text-base leading-tight">
                   Gastro Clinic 27
                 </p>
-                <p className="text-xs text-primary-600 dark:text-primary-400 font-medium">Dr. Vayu · Gastro Surgeon</p>
+                <p className="text-xs text-primary-600 dark:text-primary-400 font-medium">Expert Digestive Care</p>
               </div>
             </Link>
 

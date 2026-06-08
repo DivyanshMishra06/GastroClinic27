@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Stethoscope, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { doctorInfo } from '../data';
 
 export default function Footer() {
@@ -13,22 +13,21 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center overflow-hidden">
-                <span className="text-white text-xs font-bold select-none">G27</span>
-                <img
-                  src="/images/logo.svg"
-                  alt="Gastro Clinic 27"
-                  className="absolute inset-0 w-full h-full object-contain p-1"
-                  onError={e => { e.currentTarget.style.display = 'none'; }}
-                />
-              </div>
+              <div className="relative w-14 h-14">
+  <img
+    src="/images/logo.png"
+    alt="Gastro Clinic 27"
+    className="w-full h-full object-contain"
+  />
+</div>
+
               <div>
                 <p className="font-display font-bold text-white text-base leading-tight">Gastro Clinic 27</p>
-                <p className="text-xs text-primary-400 font-medium">Dr. Vayu · Gastro Surgeon</p>
+                <p className="text-xs text-primary-400 font-medium">Expert Digestive Care</p>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-6">
-              Bringing specialized gastroenterology care to Shahjahanpur and surrounding regions. Better Digestion, Better Life.
+              Bringing specialist gastroenterology care to Shahjahanpur and surrounding regions since 2019. Better Digestion, Better Life.
             </p>
             <div className="flex gap-3">
               {[
@@ -49,27 +48,23 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Clinic Locations */}
           <div>
-            <h4 className="font-display font-semibold text-white text-base mb-5">Quick Links</h4>
+            <h4 className="font-display font-semibold text-white text-base mb-5">Clinic Locations</h4>
             <ul className="space-y-3">
               {[
-                { name: 'Home', path: '/' },
-                { name: 'About Doctor', path: '/about' },
-                { name: 'Our Clinics', path: '/clinics' },
-                { name: 'Medical Services', path: '/services' },
-                { name: 'Book Appointment', path: '/appointment' },
-                { name: 'Patient Testimonials', path: '/testimonials' },
-                { name: 'Contact Us', path: '/contact' },
-              ].map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-gray-400 hover:text-primary-400 transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1 h-1 rounded-full bg-primary-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {link.name}
-                  </Link>
+                { name: 'Shahjahanpur', day: 'Mon – Sat', time: '2:00 – 6:00 PM' },
+                { name: 'Tilhar',       day: 'Every Thursday', time: '10:00 AM – 1:00 PM' },
+                { name: 'Nigohi',       day: 'Every Friday',   time: '10:00 AM – 1:00 PM' },
+                { name: 'Shahabad',     day: 'Every Tuesday',  time: '10:00 AM – 1:00 PM' },
+                { name: 'Powayan',      day: 'Every Sunday',   time: '2:00 – 6:00 PM' },
+              ].map((c) => (
+                <li key={c.name} className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary-400 mt-2 shrink-0" />
+                  <div>
+                    <p className="text-sm text-gray-300 font-medium">{c.name}</p>
+                    <p className="text-xs text-gray-500">{c.day} · {c.time}</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -87,7 +82,6 @@ export default function Footer() {
                 'IBS & Colitis',
                 'Liver & Pancreas',
                 'Hernia Surgery',
-                'Cancer Screening',
               ].map((service) => (
                 <li key={service}>
                   <Link
@@ -109,7 +103,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-primary-400 mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-xs text-gray-500 mb-0.5">Emergency Helpline</p>
+                  <p className="text-xs text-gray-500 mb-0.5">Helpline</p>
                   <a href={`tel:${doctorInfo.phone}`} className="text-sm text-gray-300 hover:text-primary-400 transition-colors font-medium">
                     {doctorInfo.phone}
                   </a>
@@ -135,9 +129,9 @@ export default function Footer() {
                 <Clock className="w-4 h-4 text-primary-400 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">OPD Schedule</p>
-                  <p className="text-sm text-gray-300">Shahjahanpur: Every Tuesday</p>
-                  <p className="text-sm text-gray-300">10:00 AM – 1:00 PM</p>
-                  <p className="text-sm text-gray-300 mt-1">Other locations: Call for schedule</p>
+                  <p className="text-sm text-gray-300">Shahjahanpur: Mon–Sat, 2–6 PM</p>
+                  <p className="text-sm text-gray-300">Shahabad: Tue · Tilhar: Thu</p>
+                  <p className="text-sm text-gray-300">Nigohi: Fri · Powayan: Sun</p>
                 </div>
               </li>
             </ul>
@@ -149,7 +143,7 @@ export default function Footer() {
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-500">
-            © {year} Gastro Clinic 27 · Dr. Vayu (MBBS, MS, DNB, FMAS, FIAGES). All rights reserved.
+            © {year} Gastro Clinic 27. All rights reserved. · Est. 2019 · Shahjahanpur, U.P.
           </p>
           <div className="flex gap-4">
             <a href="#" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>

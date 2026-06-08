@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { doctorInfo } from '../data';
 
 export default function WhatsAppButton() {
-  const message = encodeURIComponent("Hello Dr. Sharma, I'd like to book an appointment.");
+  const message = encodeURIComponent("Hello Gastro Clinic 27, I'd like to book an appointment.");
   const url = `https://wa.me/${doctorInfo.whatsapp}?text=${message}`;
 
   return (

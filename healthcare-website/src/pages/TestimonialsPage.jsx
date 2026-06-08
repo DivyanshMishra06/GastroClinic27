@@ -11,31 +11,31 @@ export default function TestimonialsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-900 to-accent-800 py-24">
+      <section className="bg-gradient-to-br from-primary-900 to-accent-800 py-14 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <Star className="w-4 h-4 fill-white/80" /> Patient Stories
             </span>
-            <h1 className="font-display text-5xl font-bold text-white mb-4">What Patients Say</h1>
-            <p className="text-primary-200 text-xl max-w-xl mx-auto">
-              Thousands of families trust Dr. Vayu for their health. Here are some of their stories.
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">What Patients Say</h1>
+            <p className="text-primary-200 text-base sm:text-xl max-w-xl mx-auto">
+              Thousands of families across Shahjahanpur trust Gastro Clinic 27 for their digestive health. Here are some of their stories.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Stats Row */}
-      <section className="bg-white dark:bg-gray-950 py-12 border-b border-gray-100 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-3 gap-8 text-center">
+      <section className="bg-white dark:bg-gray-950 py-10 sm:py-12 border-b border-gray-100 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
           {[
             { value: '4.9 / 5', label: 'Average Rating', sub: 'Based on 2,400+ reviews' },
-            { value: '98%', label: 'Recommend Doctor', sub: 'Would refer to family & friends' },
-            { value: '500+', label: 'Happy Patients', sub: 'Treated over 22 years' },
+            { value: '98%', label: 'Recommend Clinic', sub: 'Would refer to family & friends' },
+            { value: '50,000+', label: 'Patients Treated', sub: 'Across 5 locations since 2019' },
           ].map((s) => (
-            <div key={s.label}>
-              <p className="font-display text-3xl lg:text-4xl font-bold text-primary-600 dark:text-primary-400">{s.value}</p>
-              <p className="font-semibold text-gray-800 dark:text-white mt-1">{s.label}</p>
+            <div key={s.label} className="py-2 sm:py-0 border-b sm:border-b-0 border-gray-100 dark:border-gray-800 last:border-b-0">
+              <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 dark:text-primary-400">{s.value}</p>
+              <p className="font-semibold text-gray-800 dark:text-white mt-1 text-sm sm:text-base">{s.label}</p>
               <p className="text-xs text-gray-400 mt-0.5">{s.sub}</p>
             </div>
           ))}
@@ -104,7 +104,7 @@ export default function TestimonialsPage() {
               Share Your Experience
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Your feedback helps other patients find the right care. We'd love to hear about your experience with Dr. Vayu.
+              Your feedback helps other patients find the right care. We'd love to hear about your experience with Gastro Clinic 27.
             </p>
             <a
               href="https://g.page/r/review"

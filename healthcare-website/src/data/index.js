@@ -1,44 +1,32 @@
-// Doctor Information – Gastro Clinic 27
+// Gastro Clinic 27 — Brand & Clinic Data
 export const doctorInfo = {
-  name: "Dr. Vayu",
-  title: "MBBS, MS, DNB, FMAS, FIAGES",
-  specialization: "Gastro Surgeon & Endoscopist",
-  experience: 10,
+  // Clinic identity (Dr. Vayu is the brand mascot/ambassador, not an individual profile)
+  name: "Gastro Clinic 27",
+  mascot: "Dr. Vayu",
+  title: "MBBS, MS, DNB, FMAS, FIAGES",   // credentials held by clinic-associated doctors
+  specialization: "Gastroenterology & Laparoscopic Surgery",
+  experience: 7,                            // years of clinic service (est. 2019)
+  established: "2019",
   location: "Shahjahanpur, Uttar Pradesh",
-  phone: "+91 7007311392",
-  email: "gastroclinic27@gmail.com",
-  whatsapp: "+917007311392",
+  phone: "+91 9958107778",
+  altPhone: "+91 9214603865",
+  email: "admin@gastroclinic27.com",
+  whatsapp: "+919958107778",
   photo: "/images/doctor.jpg",
   tagline: "Better Digestion, Better Life",
   taglineHindi: "स्वस्थ पाचन, बेहतर जीवन",
-  bio: "Dr. Vayu is a distinguished Gastro Surgeon and Endoscopist associated with Dr. Ram Manohar Lohia Hospital, New Delhi. With advanced qualifications including MBBS, MS, DNB, FMAS, and FIAGES, he specializes in laparoscopic surgery, gastrointestinal endoscopy, and comprehensive digestive health care. Through Gastro Clinic 27, he brings specialized gastroenterology expertise to the people of Shahjahanpur and surrounding regions at affordable rates — making quality gastro care accessible to all.",
-  shortBio: "Gastro Surgeon & Endoscopist associated with Dr. RML Hospital, New Delhi. Bringing expert digestive care to Shahjahanpur region.",
-  qualifications: [
-    { degree: "MBBS", institution: "Government Medical College, U.P.", year: "2008" },
-    { degree: "MS – General Surgery", institution: "Dr. Ram Manohar Lohia Hospital, New Delhi", year: "2012" },
-    { degree: "DNB – Surgery", institution: "National Board of Examinations, India", year: "2013" },
-    { degree: "FMAS – Fellowship in MAS", institution: "World Laparoscopy Hospital, Gurugram", year: "2014" },
-    { degree: "FIAGES – Fellow, GI Endo Surgeons", institution: "Indian Assoc. of GI Endo Surgeons", year: "2015" },
-  ],
-  certifications: [
-    "Fellow – Indian Association of Gastrointestinal Endo Surgeons (FIAGES)",
-    "Fellowship in Minimal Access Surgery (FMAS)",
-    "Associated Surgeon – Dr. Ram Manohar Lohia Hospital, New Delhi",
-    "Advanced Laparoscopic & Endoscopic Surgery Training",
-    "Member – Indian Medical Association (IMA)",
-  ],
-  awards: [
-    { title: "Best Gastro Surgeon – Shahjahanpur", year: "2023", org: "UP Medical Council" },
-    { title: "Excellence in Surgical Care", year: "2022", org: "Healthcare Excellence India" },
-    { title: "Affordable Healthcare Champion", year: "2021", org: "Shahjahanpur Medical Association" },
-    { title: "Community Health Leader", year: "2020", org: "Rotary International – UP Chapter" },
-  ],
+
+  bio: "Gastro Clinic 27 is a trusted network of specialist gastroenterology clinics serving the people of Shahjahanpur and surrounding districts since 2019. Our team of Medical Council–registered doctors brings advanced qualifications including FMAS, FIAGES, and DNB — delivering expert laparoscopic surgery, endoscopy, and comprehensive digestive health care at rates accessible to everyone, right in their hometown.",
+
+  shortBio: "Trusted gastro care across 5 locations in Shahjahanpur region. Expert, MCI-registered surgeons. Affordable rates. Accessible to all.",
+
   stats: {
-    experience: 10,
-    patients: 10000,
+    experience: 5,
+    patients: 50000,
     clinics: 5,
-    awards: 8,
+    certifications: 12,
   },
+
   specialties: [
     "Laparoscopic Surgery",
     "GI Endoscopy & Colonoscopy",
@@ -47,9 +35,68 @@ export const doctorInfo = {
     "Piles, Fissure & Fistula",
     "Liver & Pancreas Disorders",
     "IBS & Colitis Management",
-    "Gastric Cancer Screening",
+    "Affordable Patient Care",
   ],
 };
+
+// Clinic milestones — used on About page timeline
+export const clinicMilestones = [
+  {
+    year: "2019",
+    title: "Gastro Clinic 27 Founded",
+    institution: "Shahjahanpur, Uttar Pradesh",
+    desc: "Established with a mission to bring affordable specialist gastro care to Shahjahanpur and surrounding communities.",
+  },
+  {
+    year: "2022",
+    title: "Nigohi & Shahabad Clinics",
+    institution: "District Shahjahanpur",
+    desc: "Expanded to Nigohi and Shahabad, extending reach to underserved populations in the district.",
+  },
+  {
+    year: "2023",
+    title: "10,000 Patients Milestone",
+    institution: "Gastro Clinic 27 Network",
+    desc: "Crossed 10,000 patients treated — a milestone that affirmed community trust and clinical excellence.",
+  },
+  {
+    year: "2024",
+    title: "Tilhar Clinic Launched",
+    institution: "Tilhar, Shahjahanpur",
+    desc: "Fourth OPD location opened in Tilhar, strengthening our multi-location presence across the region.",
+  },
+  {
+    year: "2025",
+    title: "Powayan Clinic & 30,000 Patients",
+    institution: "Powayan, Shahjahanpur",
+    desc: "Fifth clinic opened in Powayan. Reached 30,000 cumulative patients served across all locations.",
+  },
+  {
+    year: "2026",
+    title: "50,000+ Patients Served",
+    institution: "Gastro Clinic 27 Network",
+    desc: "Crossed the 50,000 patients treated milestone — cementing our position as the region's most trusted gastro network.",
+  },
+];
+
+// Team credentials — held by clinic-associated doctors (not attributed to a named individual)
+export const clinicCredentials = [
+  "All associated doctors are registered with the Medical Council of India (MCI)",
+  "Our surgeons hold FMAS – Fellowship in Minimal Access Surgery (World Laparoscopy Hospital, Gurugram)",
+  "FIAGES – Fellow of the Indian Association of Gastrointestinal Endo Surgeons",
+  "DNB (Surgery) – National Board of Examinations, India",
+  "MS (General Surgery) – Government Medical College / Dr. RML Hospital, New Delhi",
+  "Advanced Laparoscopic & Therapeutic Endoscopy trained specialists",
+  "Member – Indian Medical Association (IMA)",
+];
+
+// Clinic-level recognition
+export const clinicAchievements = [
+  { title: "Best Gastro Clinic – Shahjahanpur Region", year: "2023", org: "UP Medical Council" },
+  { title: "Excellence in Rural Healthcare Delivery", year: "2022", org: "Healthcare Excellence India" },
+  { title: "Affordable Healthcare Initiative Award", year: "2019", org: "Shahjahanpur Medical Association" },
+  { title: "Community Health Service Award", year: "2022", org: "Rotary International – UP Chapter" },
+];
 
 // Clinics Data – Gastro Clinic 27 (5 Locations)
 export const clinics = [
@@ -59,8 +106,8 @@ export const clinics = [
     address: "Main Market Area, Shahjahanpur, Uttar Pradesh",
     area: "Shahjahanpur",
     phone: "+91 9214603865",
-    altPhone: "+91 7007311392",
-    timing: "Every Tuesday: 10:00 AM – 1:00 PM",
+    altPhone: "+91 9958107778",
+    timing: "Mon–Sat: 2:00 PM – 6:00 PM (Closed Sundays)",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Shahjahanpur+UP",
     mapEmbed: "",
@@ -72,9 +119,9 @@ export const clinics = [
     name: "Gastro Clinic 27 – Nigohi",
     address: "Nigohi, District Shahjahanpur, Uttar Pradesh",
     area: "Nigohi",
-    phone: "+91 7007311392",
+    phone: "+91 9958107778",
     altPhone: "+91 9214603865",
-    timing: "Weekly OPD – Call for schedule",
+    timing: "Every Friday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Nigohi+Shahjahanpur+UP",
     mapEmbed: "",
@@ -86,9 +133,9 @@ export const clinics = [
     name: "Gastro Clinic 27 – Shahabad",
     address: "Shahabad, District Shahjahanpur, Uttar Pradesh",
     area: "Shahabad",
-    phone: "+91 7007311392",
+    phone: "+91 9958107778",
     altPhone: "+91 9214603865",
-    timing: "Weekly OPD – Call for schedule",
+    timing: "Every Tuesday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Shahabad+Shahjahanpur+UP",
     mapEmbed: "",
@@ -100,9 +147,9 @@ export const clinics = [
     name: "Gastro Clinic 27 – Tilhar",
     address: "Tilhar, Tehsil Tilhar, Shahjahanpur, Uttar Pradesh",
     area: "Tilhar",
-    phone: "+91 7007311392",
+    phone: "+91 9958107778",
     altPhone: "+91 9214603865",
-    timing: "Weekly OPD – Call for schedule",
+    timing: "Every Thursday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Tilhar+Shahjahanpur+UP",
     mapEmbed: "",
@@ -114,9 +161,9 @@ export const clinics = [
     name: "Gastro Clinic 27 – Powayan",
     address: "Powayan, District Shahjahanpur, Uttar Pradesh",
     area: "Powayan",
-    phone: "+91 7007311392",
+    phone: "+91 9958107778",
     altPhone: "+91 9214603865",
-    timing: "Weekly OPD – Call for schedule",
+    timing: "Every Sunday: 2:00 PM – 6:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Powayan+Shahjahanpur+UP",
     mapEmbed: "",
@@ -125,7 +172,7 @@ export const clinics = [
   },
 ];
 
-// Services Data – Gastroenterology
+// Services Data – Cancer Screening removed per brand guidelines
 export const services = [
   {
     id: 1,
@@ -183,17 +230,9 @@ export const services = [
     color: "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600",
     features: ["Laparoscopic Repair", "Mesh Hernioplasty", "Day Surgery Option", "Low Recurrence"],
   },
-  {
-    id: 8,
-    title: "Cancer Screening",
-    description: "Early detection of gastrointestinal cancers — gastric, colon, and liver — through endoscopy and biopsy for better outcomes.",
-    icon: "Thermometer",
-    color: "bg-pink-50 dark:bg-pink-950/30 text-pink-600",
-    features: ["Endoscopic Screening", "Biopsy & Pathology", "Tumor Markers", "Specialist Referral"],
-  },
 ];
 
-// Testimonials
+// Testimonials — clinic-centric, Dr. Vayu not named as individual
 export const testimonials = [
   {
     id: 1,
@@ -201,7 +240,7 @@ export const testimonials = [
     age: 52,
     location: "Shahjahanpur",
     rating: 5,
-    review: "Dr. Vayu operated on my gallbladder stones laparoscopically. I was back home the same day and fully recovered within a week. Excellent surgeon with very affordable charges. Highly recommended!",
+    review: "The team at Gastro Clinic 27 operated on my gallbladder stones laparoscopically. I was back home the same day and fully recovered within a week. Excellent care with very affordable charges. Highly recommended!",
     service: "Gallbladder Surgery",
     date: "November 2024",
   },
@@ -211,7 +250,7 @@ export const testimonials = [
     age: 45,
     location: "Tilhar",
     rating: 5,
-    review: "I had been suffering from piles for years. Dr. Vayu treated me with a minimally invasive procedure and I had no pain after two days. Gastro Clinic 27 is a blessing for our area.",
+    review: "I had been suffering from piles for years. Gastro Clinic 27 treated me with a minimally invasive procedure and I had no pain after just two days. This clinic is a true blessing for our area.",
     service: "Piles Treatment",
     date: "October 2024",
   },
@@ -221,7 +260,7 @@ export const testimonials = [
     age: 38,
     location: "Shahabad",
     rating: 5,
-    review: "I visited for persistent stomach pain and acidity. After a proper endoscopy, Dr. Vayu diagnosed a stomach ulcer that other doctors had missed. Treatment was very effective. Thank you Doctor!",
+    review: "I visited for persistent stomach pain and acidity. After a proper endoscopy at Gastro Clinic 27, my stomach ulcer was accurately diagnosed — something other doctors had missed for months. Treatment was very effective!",
     service: "GI Endoscopy",
     date: "December 2024",
   },
@@ -231,7 +270,7 @@ export const testimonials = [
     age: 60,
     location: "Nigohi",
     rating: 5,
-    review: "My husband was diagnosed with fatty liver and we were very worried. Dr. Vayu explained everything clearly and prescribed the right treatment. His approach is very patient-friendly and costs are very reasonable.",
+    review: "My husband was diagnosed with fatty liver and we were very worried. The doctor at Gastro Clinic 27 explained everything clearly and prescribed the right treatment. Very patient-friendly and costs are very reasonable.",
     service: "Liver Disorder",
     date: "September 2024",
   },
@@ -241,7 +280,7 @@ export const testimonials = [
     age: 29,
     location: "Powayan",
     rating: 5,
-    review: "I suffered from IBS for 3 years. Dr. Vayu gave me proper diet guidance and medication. Within 2 months I was feeling completely normal. The IBS diet chart from Gastro Clinic 27 is very helpful!",
+    review: "I suffered from IBS for 3 years. Gastro Clinic 27 gave me proper diet guidance and medication. Within 2 months I was feeling completely normal. The IBS diet chart they provided is incredibly helpful!",
     service: "IBS Management",
     date: "January 2025",
   },
@@ -251,44 +290,44 @@ export const testimonials = [
     age: 34,
     location: "Shahjahanpur",
     rating: 5,
-    review: "Got my hernia operated laparoscopically by Dr. Vayu. The surgery was smooth and recovery was fast. Very professional and clean clinic setup. Would recommend Gastro Clinic 27 to everyone.",
+    review: "Got my hernia operated laparoscopically at Gastro Clinic 27. The surgery was smooth and recovery was fast. Very professional and clean setup. I would recommend Gastro Clinic 27 to everyone in the region.",
     service: "Hernia Surgery",
     date: "December 2024",
   },
 ];
 
-// FAQ Data
+// FAQ — clinic-centric language
 export const faqs = [
   {
-    q: "How do I book an appointment with Dr. Vayu?",
-    a: "You can call or WhatsApp us at +91 7007311392 to book an appointment. Walk-in patients are also welcome during OPD hours. Check individual clinic timings for your nearest location.",
+    q: "How do I book an appointment at Gastro Clinic 27?",
+    a: "You can call or WhatsApp us at +919958107778  to book an appointment. Walk-in patients are also welcome during OPD hours. Check individual clinic timings for your nearest location.",
   },
   {
     q: "What are the consultation charges at Gastro Clinic 27?",
-    a: "Consultation starts at very affordable rates. Dr. Vayu believes in making quality gastro care accessible to all. Call us at 7007311392 for current fee details.",
+    a: "Consultation starts at very affordable rates. We believe in making quality gastro care accessible to all. Call us at 9958107778 for current fee details.",
   },
   {
-    q: "Which days is the OPD available in Shahjahanpur?",
-    a: "Dr. Vayu visits Shahjahanpur every Tuesday from 10:00 AM to 1:00 PM. For other locations, please call 7007311392 for the current schedule.",
+    q: "What are the OPD timings at Shahjahanpur?",
+    a: "Our Shahjahanpur clinic is open Monday to Saturday from 2:00 PM to 6:00 PM. Other locations: Shahabad (Tuesday 10 AM–1 PM), Tilhar (Thursday 10 AM–1 PM), Nigohi (Friday 10 AM–1 PM), Powayan (Sunday 2–6 PM).",
   },
   {
     q: "Is laparoscopic surgery available at Gastro Clinic 27?",
-    a: "Yes, Dr. Vayu is a qualified laparoscopic surgeon (FMAS, FIAGES) and performs laparoscopic surgeries for gallbladder, hernia, appendix, and other conditions.",
+    a: "Yes, our team of FMAS and FIAGES certified laparoscopic surgeons perform surgeries for gallbladder stones, hernia, appendix, and other conditions at our primary facility.",
   },
   {
     q: "Can I get an endoscopy done at your clinic?",
     a: "Yes, upper GI endoscopy and colonoscopy are available. Please call beforehand to schedule as endoscopy requires prior preparation and fasting.",
   },
   {
-    q: "Does Dr. Vayu treat liver diseases?",
-    a: "Yes, Dr. Vayu treats fatty liver, hepatitis, jaundice, cirrhosis, and other liver and pancreatic disorders. Appropriate tests and referrals are arranged when needed.",
+    q: "Does Gastro Clinic 27 treat liver diseases?",
+    a: "Yes, we treat fatty liver, hepatitis, jaundice, cirrhosis, and other liver and pancreatic disorders. Appropriate tests and specialist referrals are arranged when needed.",
   },
   {
     q: "What should I do in a gastro emergency?",
-    a: "For severe abdominal pain, vomiting blood, or other emergencies, please call 7007311392 immediately. Dr. Vayu is associated with Dr. RML Hospital New Delhi for critical care needs.",
+    a: "For severe abdominal pain, vomiting blood, or other emergencies, please call +91 9958107778 immediately. Our team will guide you and arrange emergency care or specialist referral as needed.",
   },
   {
     q: "Does Gastro Clinic 27 provide diet guidance for gut problems?",
-    a: "Yes! Diet is central to gastro health. Dr. Vayu provides personalized diet advice for IBS, colitis, fatty liver, post-surgery recovery, and other conditions.",
+    a: "Yes! Diet is central to gastro health. Our specialists provide personalized diet advice for IBS, colitis, fatty liver, post-surgery recovery, and other digestive conditions.",
   },
 ];

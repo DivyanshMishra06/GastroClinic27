@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import DrVayuGuide from './components/DrVayuGuide';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ClinicsPage from './pages/ClinicsPage';
@@ -10,6 +12,14 @@ import ServicesPage from './pages/ServicesPage';
 import AppointmentPage from './pages/AppointmentPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import ContactPage from './pages/ContactPage';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+}
 
 const pageVariants = {
   initial: { opacity: 0, y: 16 },
@@ -46,11 +56,13 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-1"><AnimatedRoutes /></main>
         <Footer />
         <WhatsAppButton />
+        <DrVayuGuide />
       </div>
     </BrowserRouter>
   );
