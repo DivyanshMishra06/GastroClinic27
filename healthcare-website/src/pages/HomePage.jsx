@@ -221,54 +221,89 @@ function ClinicShowcase() {
     <div className="grid lg:grid-cols-5 gap-4 items-start">
 
       {/* Left — Large featured image (full poster, no crop) */}
-      <div className="lg:col-span-3 relative rounded-3xl overflow-hidden shadow-2xl bg-white aspect-video lg:aspect-square">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute inset-0"
-          >
-            <img src={clinic.src} alt={clinic.label} className="w-full h-full object-contain" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Overlay info */}
-        <div className="absolute bottom-0 left-0 right-0 p-7 z-10">
+      <div className="lg:col-span-3">
+        {/* Image */}
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
             >
-              <span className="inline-block bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
-                {clinic.tag}
-              </span>
-              <h3 className="font-display text-3xl font-bold text-white mb-1">
-                {clinic.label} Clinic
-              </h3>
-              <p className="text-white/90 text-sm mb-4 flex items-center gap-2">
-                <Clock className="w-4 h-4" /> {clinic.day} · {clinic.time}
-              </p>
-              <Link
-                to="/appointment"
-                className="inline-flex items-center gap-2 bg-white text-primary-700 text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:-translate-y-0.5"
-              >
-                <Calendar className="w-4 h-4" /> Book at this Clinic
-              </Link>
+              <img src={clinic.src} alt={clinic.label} className="w-full h-auto" />
+              {/* Gradient overlay — desktop only */}
+              <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             </motion.div>
           </AnimatePresence>
+
+          {/* Overlay info — desktop only */}
+          <div className="hidden lg:block absolute bottom-0 left-0 right-0 p-7 z-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+              >
+                <span className="inline-block bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+                  {clinic.tag}
+                </span>
+                <h3 className="font-display text-3xl font-bold text-white mb-1">
+                  {clinic.label} Clinic
+                </h3>
+                <p className="text-white/90 text-sm mb-4 flex items-center gap-2">
+                  <Clock className="w-4 h-4" /> {clinic.day} · {clinic.time}
+                </p>
+                <Link
+                  to="/appointment"
+                  className="inline-flex items-center gap-2 bg-white text-primary-700 text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:-translate-y-0.5"
+                >
+                  <Calendar className="w-4 h-4" /> Book at this Clinic
+                </Link>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Counter badge */}
+          <div className="absolute top-3 right-3 lg:top-5 lg:right-5 bg-black/40 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full z-10">
+            {active + 1} / {allClinics.length}
+          </div>
         </div>
 
-        {/* Counter badge */}
-        <div className="absolute top-5 right-5 bg-black/40 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full z-10">
-          {active + 1} / {allClinics.length}
-        </div>
+        {/* Info below image — mobile only */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="lg:hidden mt-3 px-1"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="inline-block bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-1">
+                  {clinic.tag}
+                </span>
+                <h3 className="font-display text-xl font-bold text-gray-900 dark:text-white">
+                  {clinic.label} Clinic
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1.5 mt-0.5">
+                  <Clock className="w-3.5 h-3.5" /> {clinic.day} · {clinic.time}
+                </p>
+              </div>
+              <Link
+                to="/appointment"
+                className="inline-flex items-center gap-1.5 bg-primary-600 text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-primary-700 transition-all shadow shrink-0"
+              >
+                <Calendar className="w-3.5 h-3.5" /> Book
+              </Link>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Right — Clinic list (vertical on desktop, horizontal scroll on mobile) */}
