@@ -13,7 +13,7 @@ const timeSlots = [
   '12:00 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM',
 ];
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'df8c7148-a922-45e5-bf4d-9bd60cf5cf6a';
 
 const initForm = {
   name: '', mobile: '', age: '', gender: '', clinic: '', date: '', time: '', symptoms: '', type: 'In-Person',

@@ -352,17 +352,46 @@ function ClinicShowcase() {
   );
 }
 
+const HOME_WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'df8c7148-a922-45e5-bf4d-9bd60cf5cf6a';
+
 function AppointmentSection() {
   const [form, setForm] = useState({ name: '', phone: '', condition: '', location: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1200);
+    setSubmitError('');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: HOME_WEB3FORMS_KEY,
+          subject: `New Appointment Request from ${form.name} – Gastro Clinic 27`,
+          from_name: form.name,
+          'Patient Name': form.name,
+          'Phone': form.phone,
+          'Condition': form.condition,
+          'Preferred Clinic': form.location,
+          'Message': form.message || 'Not provided',
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError('Something went wrong. Please try again or call us directly.');
+      }
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const locations = ['Shahjahanpur', 'Shahabad', 'Tilhar', 'Nigohi', 'Powayan'];
@@ -406,7 +435,7 @@ function AppointmentSection() {
                   Thank you, <strong>{form.name}</strong>. Our team will contact you on <strong>{form.phone}</strong> shortly to confirm your appointment.
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setForm({ name: '', phone: '', condition: '', location: '', message: '' }); }}
+                  onClick={() => { setSubmitted(false); setSubmitError(''); setForm({ name: '', phone: '', condition: '', location: '', message: '' }); }}
                   className="btn-outline text-sm"
                 >
                   Book Another
@@ -480,6 +509,12 @@ function AppointmentSection() {
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition resize-none"
                   />
                 </div>
+
+                {submitError && (
+                  <div className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-xl p-4 text-sm">
+                    {submitError}
+                  </div>
+                )}
 
                 <button
                   type="submit"

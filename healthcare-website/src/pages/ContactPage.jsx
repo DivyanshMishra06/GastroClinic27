@@ -43,7 +43,7 @@ function FAQItem({ faq, idx }) {
   );
 }
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'df8c7148-a922-45e5-bf4d-9bd60cf5cf6a';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
