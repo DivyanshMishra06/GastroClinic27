@@ -72,7 +72,7 @@ export default function AboutPage() {
             <p className="text-accent-300 text-sm mb-8 font-medium">
               7+ Years · 50,000+ Patients · 5 Clinic Locations · MCI Registered Doctors
             </p>
-            <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
               <Calendar className="w-5 h-5" /> Book Appointment
             </Link>
           </motion.div>
@@ -284,7 +284,7 @@ export default function AboutPage() {
             <p className="text-primary-200 mb-8 max-w-xl mx-auto">
               Book an appointment at Gastro Clinic 27 — 5 locations, affordable rates, expert MCI-registered doctors.
             </p>
-            <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
               <Calendar className="w-5 h-5" /> Book Your Appointment
             </Link>
           </motion.div>

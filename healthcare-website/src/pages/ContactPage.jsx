@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const MotionLink = motion(Link);
 import { Phone, Mail, MapPin, MessageSquare, ChevronDown, Send, CheckCircle } from 'lucide-react';
 import { doctorInfo, clinics, faqs } from '../data';
 import { WEB3FORMS_KEY } from '../lib/config';
+
+const MotionLink = motion(Link);
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -145,7 +145,6 @@ export default function ContactPage() {
               const Icon = card.icon;
               const isInternal = card.href.startsWith('/');
               const sharedProps = {
-                key: card.title,
                 initial: 'hidden',
                 whileInView: 'visible',
                 viewport: { once: true },
@@ -164,9 +163,9 @@ export default function ContactPage() {
                 </>
               );
               return isInternal ? (
-                <MotionLink to={card.href} {...sharedProps}>{inner}</MotionLink>
+                <MotionLink key={card.title} to={card.href} {...sharedProps}>{inner}</MotionLink>
               ) : (
-                <motion.a href={card.href} target="_blank" rel="noopener noreferrer" {...sharedProps}>{inner}</motion.a>
+                <motion.a key={card.title} href={card.href} target="_blank" rel="noopener noreferrer" {...sharedProps}>{inner}</motion.a>
               );
             })}
           </div>

@@ -60,7 +60,7 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/appointment" className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary-600 dark:text-primary-400 group-hover:gap-3 transition-all">
+                  <Link to="/appointment#appointment-form" className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary-600 dark:text-primary-400 group-hover:gap-3 transition-all">
                     Book Now <ArrowRight className="w-4 h-4" />
                   </Link>
                 </motion.div>
@@ -105,7 +105,7 @@ export default function ServicesPage() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl font-bold text-white mb-4">Start Your Gut Health Journey Today</h2>
             <p className="text-primary-200 mb-8">Book an appointment at Gastro Clinic 27 and get expert, affordable gastro care close to home.</p>
-            <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
               Book Appointment <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

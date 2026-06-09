@@ -131,7 +131,7 @@ export default function ClinicsPage() {
             <p className="text-gray-500 dark:text-gray-400 mb-8">
               Call +91 7007311392 to book or walk in during OPD hours at your nearest Gastro Clinic 27 location.
             </p>
-            <Link to="/appointment" className="btn-primary inline-flex items-center gap-2">
+            <Link to="/appointment#appointment-form" className="btn-primary inline-flex items-center gap-2">
               <Calendar className="w-5 h-5" /> Book Online Consultation
             </Link>
           </motion.div>

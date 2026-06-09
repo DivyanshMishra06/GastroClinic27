@@ -266,7 +266,7 @@ function ClinicShowcase() {
                   <Clock className="w-4 h-4" /> {clinic.day} · {clinic.time}
                 </p>
                 <Link
-                  to="/appointment"
+                  to={`/appointment?clinic=${active + 1}#appointment-form`}
                   className="inline-flex items-center gap-2 bg-white text-primary-700 text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:-translate-y-0.5"
                 >
                   <Calendar className="w-4 h-4" /> Book at this Clinic
@@ -304,7 +304,7 @@ function ClinicShowcase() {
                 </p>
               </div>
               <Link
-                to="/appointment"
+                to={`/appointment?clinic=${active + 1}#appointment-form`}
                 className="inline-flex items-center gap-1.5 bg-primary-600 text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-primary-700 transition-all shadow shrink-0"
               >
                 <Calendar className="w-3.5 h-3.5" /> Book
@@ -681,7 +681,7 @@ export default function HomePage() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-7 py-3.5 rounded-xl hover:bg-primary-50 transition-all shadow-xl shadow-black/20 hover:-translate-y-0.5">
+              <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-7 py-3.5 rounded-xl hover:bg-primary-50 transition-all shadow-xl shadow-black/20 hover:-translate-y-0.5">
                 <Calendar className="w-5 h-5" />
                 Book Appointment
               </Link>
@@ -908,7 +908,7 @@ export default function HomePage() {
 
               {/* CTAs */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
-                <Link to="/appointment" className="btn-primary inline-flex items-center gap-2">
+                <Link to="/appointment#appointment-form" className="btn-primary inline-flex items-center gap-2">
                   <Calendar className="w-4 h-4" /> Book Appointment
                 </Link>
                 <a href={`tel:${doctorInfo.phone}`} className="btn-outline inline-flex items-center gap-2">
@@ -998,7 +998,7 @@ export default function HomePage() {
                 Gastro Clinic 27 has been the region's most trusted digestive care network since 2019 — bringing specialist-level care within reach of every family in Shahjahanpur.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-6 py-3 rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:-translate-y-0.5">
+                <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-6 py-3 rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:-translate-y-0.5">
                   <Calendar className="w-4 h-4" /> Book Appointment
                 </Link>
                 <Link to="/about" className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-all hover:-translate-y-0.5">
@@ -1291,7 +1291,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+                <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
                   <Calendar className="w-5 h-5" />
                   Book Appointment Now
                 </Link>
