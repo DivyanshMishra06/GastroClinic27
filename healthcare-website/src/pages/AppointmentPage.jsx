@@ -1,17 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle, User, Phone, Clock, MapPin } from 'lucide-react';
-import { clinics } from '../data';
+import { clinics, clinicTimeSlots } from '../data';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, duration: 0.5 } }),
 };
 
-const timeSlots = [
-  '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-  '12:00 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM',
-];
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'df8c7148-a922-45e5-bf4d-9bd60cf5cf6a';
 
@@ -78,9 +74,11 @@ export default function AppointmentPage() {
   };
 
   const handleChange = (field, value) => {
-    setForm((f) => ({ ...f, [field]: value }));
+    setForm((f) => ({ ...f, [field]: value, ...(field === 'clinic' ? { time: '' } : {}) }));
     setErrors((e) => { const n = { ...e }; delete n[field]; return n; });
   };
+
+  const availableSlots = clinicTimeSlots[form.clinic] ?? [];
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -219,9 +217,16 @@ export default function AppointmentPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Preferred Time *</label>
-                  <select className="input-field" value={form.time} onChange={e => handleChange('time', e.target.value)}>
-                    <option value="">Select time slot</option>
-                    {timeSlots.map(t => <option key={t}>{t}</option>)}
+                  <select
+                    className="input-field"
+                    value={form.time}
+                    onChange={e => handleChange('time', e.target.value)}
+                    disabled={!form.clinic}
+                  >
+                    <option value="">
+                      {form.clinic ? 'Select time slot' : 'Select a clinic first'}
+                    </option>
+                    {availableSlots.map(t => <option key={t}>{t}</option>)}
                   </select>
                   {errors.time && <p className="text-red-500 text-xs mt-1">{errors.time}</p>}
                 </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
 
 const ROUTE_MESSAGES = {
@@ -18,6 +18,7 @@ const DOCTOR_IMG = '/images/doctor-cartoon.png';
 
 export default function DrVayuGuide() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [bubbleOpen, setBubbleOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(false);
   const [introComplete, setIntroComplete] = useState(false);
@@ -32,7 +33,7 @@ export default function DrVayuGuide() {
       const t = setTimeout(() => {
         setShowIntro(false);
         setIntroComplete(true);
-      }, 4200);
+      }, 2000);
       return () => clearTimeout(t);
     } else {
       setShowIntro(false);
@@ -108,7 +109,7 @@ export default function DrVayuGuide() {
             {/* Doctor image — bouncing, white bg removed via mix-blend-mode */}
             <motion.div
               animate={{ y: [0, -14, 0, -8, 0] }}
-              transition={{ delay: 0.3, duration: 1.5, repeat: 2, ease: 'easeInOut' }}
+              transition={{ delay: 0.2, duration: 1.6, repeat: 0, ease: 'easeInOut' }}
             >
               <img
                 src={DOCTOR_IMG}
@@ -181,10 +182,10 @@ export default function DrVayuGuide() {
                 transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
               >
                 <motion.button
-                  onClick={() => setBubbleOpen(prev => !prev)}
+                  onClick={() => navigate('/contact#send-message')}
                   whileHover={{ scale: 1.08 }}
                   whileTap={{ scale: 0.92 }}
-                  aria-label="Chat with Dr. Vayu"
+                  aria-label="Go to Contact page"
                   style={{
                     background: 'none',
                     border: 'none',

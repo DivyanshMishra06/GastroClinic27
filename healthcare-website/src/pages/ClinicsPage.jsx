@@ -84,11 +84,7 @@ export default function ClinicsPage() {
 
                   <div className="flex items-center gap-3">
                     <Phone className="w-4 h-4 text-gray-400 shrink-0" />
-                    <div>
-                      <a href={`tel:${clinic.phone}`} className="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline">{clinic.phone}</a>
-                      <span className="text-gray-400 mx-2">·</span>
-                      <a href={`tel:${clinic.altPhone}`} className="text-sm text-gray-500 hover:text-primary-600 transition-colors">{clinic.altPhone}</a>
-                    </div>
+                    <a href={`tel:${clinic.phone}`} className="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline">{clinic.phone}</a>
                   </div>
 
                   <div className="flex items-start gap-3">
@@ -133,7 +129,7 @@ export default function ClinicsPage() {
               Book Your Appointment Today
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Call +91 9958107778 to book or walk in during OPD hours at your nearest Gastro Clinic 27 location.
+              Call +91 7007311392 to book or walk in during OPD hours at your nearest Gastro Clinic 27 location.
             </p>
             <Link to="/appointment" className="btn-primary inline-flex items-center gap-2">
               <Calendar className="w-5 h-5" /> Book Online Consultation

@@ -160,7 +160,7 @@ export default function ContactPage() {
           {/* Contact Form + Map */}
           <div className="grid lg:grid-cols-2 gap-10">
             {/* Form */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="card p-8">
+            <motion.div id="send-message" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="card p-8">
               <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h2>
               {sent && (
                 <div className="flex items-center gap-3 bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 rounded-xl p-4 mb-5">

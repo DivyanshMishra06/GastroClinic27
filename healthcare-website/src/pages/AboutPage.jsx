@@ -70,7 +70,7 @@ export default function AboutPage() {
               Trusted Specialist Gastroenterology Care for Every Family in Shahjahanpur and Surrounding Districts
             </p>
             <p className="text-accent-300 text-sm mb-8 font-medium">
-              5+ Years · 50,000+ Patients · 5 Clinic Locations · MCI Registered Doctors
+              7+ Years · 50,000+ Patients · 5 Clinic Locations · MCI Registered Doctors
             </p>
             <Link to="/appointment" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
               <Calendar className="w-5 h-5" /> Book Appointment
@@ -104,7 +104,6 @@ export default function AboutPage() {
                     { label: 'Patients Served', value: '50,000+' },
                     { label: 'Clinic Locations', value: '5 Across Region' },
                     { label: 'Specialization', value: 'Gastroenterology' },
-                    { label: 'Doctor Credentials', value: 'FMAS · FIAGES · DNB' },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between items-center py-2 border-b border-gray-100 dark:border-gray-800 last:border-0">
                       <span className="text-sm text-gray-500 dark:text-gray-400">{label}</span>

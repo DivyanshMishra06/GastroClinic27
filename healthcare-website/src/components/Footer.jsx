@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import { doctorInfo } from '../data';
 
 export default function Footer() {
@@ -30,21 +30,35 @@ export default function Footer() {
               Bringing specialist gastroenterology care to Shahjahanpur and surrounding regions since 2019. Better Digestion, Better Life.
             </p>
             <div className="flex gap-3">
-              {[
-                { icon: Facebook, label: 'Facebook' },
-                { icon: Instagram, label: 'Instagram' },
-                { icon: Twitter, label: 'Twitter' },
-                { icon: Youtube, label: 'YouTube' },
-              ].map(({ icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-primary-600 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/gastroclinic27"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-primary-600 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/gastroclinic27"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-primary-600 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.threads.net/@gastroclinic27"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Threads"
+                className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-primary-600 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
+              >
+                <svg viewBox="0 0 192 192" className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M141.537 88.988a66.667 66.667 0 0 0-2.518-1.143c-1.482-27.307-16.403-42.94-41.457-43.1h-.34c-14.986 0-27.449 6.396-35.12 18.036l13.779 9.452c5.73-8.695 14.724-10.548 21.347-10.548h.23c8.248.054 14.474 2.452 18.515 7.129 2.932 3.405 4.893 8.111 5.864 14.05-7.314-1.243-15.224-1.626-23.68-1.14-23.82 1.372-39.134 15.265-38.105 34.569.522 9.792 5.4 18.216 13.735 23.719 7.047 4.652 16.124 6.927 25.557 6.412 12.458-.683 22.231-5.436 29.049-14.127 5.178-6.6 8.453-15.153 9.899-25.93 5.937 3.583 10.337 8.298 12.767 13.966 4.132 9.635 4.373 25.468-8.546 38.322-11.319 11.258-24.925 16.132-45.488 16.287-22.809-.169-40.06-7.484-51.275-21.742C35.236 139.966 29.808 120.682 29.605 96c.203-24.682 5.63-43.966 16.133-57.317C56.954 24.425 74.204 17.11 97.013 16.94c22.975.17 40.526 7.52 52.171 21.847 5.71 6.956 9.99 15.69 12.737 25.895l16.198-4.328c-3.383-12.505-8.71-23.317-15.932-32.24C147.625 10.443 126.007.4 97.07.2h-.113C68.15.4 46.741 10.48 32.73 29.053 20.24 45.608 13.925 68.575 13.71 96v.2c.215 27.426 6.53 50.393 19.02 66.947 14.01 18.573 35.42 28.653 64.227 28.853h.113c25.868-.18 44.137-6.95 59.187-21.938 19.818-19.74 19.217-44.578 12.703-59.811-4.706-10.965-13.65-19.575-27.423-24.263Zm-47.895 44.135c-10.443.574-21.3-4.098-21.82-14.135-.397-7.442 5.296-15.745 22.461-16.735 1.966-.113 3.895-.169 5.79-.169 6.235 0 12.068.606 17.37 1.765-1.978 24.702-13.067 29.274Z"/>
+                </svg>
+              </a>
             </div>
           </div>
 

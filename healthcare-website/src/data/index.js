@@ -8,10 +8,9 @@ export const doctorInfo = {
   experience: 7,                            // years of clinic service (est. 2019)
   established: "2019",
   location: "Shahjahanpur, Uttar Pradesh",
-  phone: "+91 9958107778",
-  altPhone: "+91 9214603865",
+  phone: "+91 7007311392",
   email: "admin@gastroclinic27.com",
-  whatsapp: "+919958107778",
+  whatsapp: "+917007311392",
   photo: "/images/doctor.jpg",
   tagline: "Better Digestion, Better Life",
   taglineHindi: "स्वस्थ पाचन, बेहतर जीवन",
@@ -21,7 +20,7 @@ export const doctorInfo = {
   shortBio: "Trusted gastro care across 5 locations in Shahjahanpur region. Expert, MCI-registered surgeons. Affordable rates. Accessible to all.",
 
   stats: {
-    experience: 5,
+    experience: 7,
     patients: 50000,
     clinics: 5,
     certifications: 12,
@@ -105,8 +104,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Shahjahanpur",
     address: "Main Market Area, Shahjahanpur, Uttar Pradesh",
     area: "Shahjahanpur",
-    phone: "+91 9214603865",
-    altPhone: "+91 9958107778",
+    phone: "+91 7007311392",
     timing: "Mon–Sat: 2:00 PM – 6:00 PM (Closed Sundays)",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Shahjahanpur+UP",
@@ -119,8 +117,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Nigohi",
     address: "Nigohi, District Shahjahanpur, Uttar Pradesh",
     area: "Nigohi",
-    phone: "+91 9958107778",
-    altPhone: "+91 9214603865",
+    phone: "+91 7007311392",
     timing: "Every Friday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Nigohi+Shahjahanpur+UP",
@@ -133,8 +130,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Shahabad",
     address: "Shahabad, District Shahjahanpur, Uttar Pradesh",
     area: "Shahabad",
-    phone: "+91 9958107778",
-    altPhone: "+91 9214603865",
+    phone: "+91 7007311392",
     timing: "Every Tuesday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Shahabad+Shahjahanpur+UP",
@@ -147,8 +143,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Tilhar",
     address: "Tilhar, Tehsil Tilhar, Shahjahanpur, Uttar Pradesh",
     area: "Tilhar",
-    phone: "+91 9958107778",
-    altPhone: "+91 9214603865",
+    phone: "+91 7007311392",
     timing: "Every Thursday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Tilhar+Shahjahanpur+UP",
@@ -161,8 +156,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Powayan",
     address: "Powayan, District Shahjahanpur, Uttar Pradesh",
     area: "Powayan",
-    phone: "+91 9958107778",
-    altPhone: "+91 9214603865",
+    phone: "+91 7007311392",
     timing: "Every Sunday: 2:00 PM – 6:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Powayan+Shahjahanpur+UP",
@@ -171,6 +165,15 @@ export const clinics = [
     facilities: ["OPD", "Consultation", "Pathology"],
   },
 ];
+
+// Time slots per clinic — keyed by clinic ID (string), aligned to OPD hours
+export const clinicTimeSlots = {
+  '1': ['2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM'],   // Shahjahanpur  Mon–Sat 2–6 PM
+  '2': ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM'],                     // Nigohi        Fri 10 AM–1 PM
+  '3': ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM'],                     // Shahabad      Tue 10 AM–1 PM
+  '4': ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM'],                     // Tilhar        Thu 10 AM–1 PM
+  '5': ['2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM'],   // Powayan       Sun 2–6 PM
+};
 
 // Services Data – Cancer Screening removed per brand guidelines
 export const services = [
@@ -300,11 +303,11 @@ export const testimonials = [
 export const faqs = [
   {
     q: "How do I book an appointment at Gastro Clinic 27?",
-    a: "You can call or WhatsApp us at +919958107778  to book an appointment. Walk-in patients are also welcome during OPD hours. Check individual clinic timings for your nearest location.",
+    a: "You can call or WhatsApp us at +917007311392  to book an appointment. Walk-in patients are also welcome during OPD hours. Check individual clinic timings for your nearest location.",
   },
   {
     q: "What are the consultation charges at Gastro Clinic 27?",
-    a: "Consultation starts at very affordable rates. We believe in making quality gastro care accessible to all. Call us at 9958107778 for current fee details.",
+    a: "Consultation starts at very affordable rates. We believe in making quality gastro care accessible to all. Call us at 7007311392 for current fee details.",
   },
   {
     q: "What are the OPD timings at Shahjahanpur?",
@@ -324,7 +327,7 @@ export const faqs = [
   },
   {
     q: "What should I do in a gastro emergency?",
-    a: "For severe abdominal pain, vomiting blood, or other emergencies, please call +91 9958107778 immediately. Our team will guide you and arrange emergency care or specialist referral as needed.",
+    a: "For severe abdominal pain, vomiting blood, or other emergencies, please call +91 7007311392 immediately. Our team will guide you and arrange emergency care or specialist referral as needed.",
   },
   {
     q: "Does Gastro Clinic 27 provide diet guidance for gut problems?",

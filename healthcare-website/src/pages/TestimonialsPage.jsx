@@ -107,7 +107,7 @@ export default function TestimonialsPage() {
               Your feedback helps other patients find the right care. We'd love to hear about your experience with Gastro Clinic 27.
             </p>
             <a
-              href="https://g.page/r/review"
+              href="https://maps.app.goo.gl/ThLv26UdfVuWaBMd8?g_st=iw"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2"

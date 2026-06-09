@@ -650,7 +650,7 @@ export default function HomePage() {
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
             <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm font-medium mb-6">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              5+ Years of Trusted Care · 5 Clinic Locations
+              7+ Years of Trusted Care · 5 Clinic Locations
             </motion.div>
 
             <motion.div variants={fadeUp} className="mb-2">
@@ -683,7 +683,7 @@ export default function HomePage() {
             <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center gap-6">
               {[
                 { label: '50,000+ Patients', icon: Users },
-                { label: '5+ Years', icon: Award },
+                { label: '7+ Years', icon: Award },
                 { label: '5 Clinics', icon: MapPin },
               ].map(({ label, icon: Icon }) => (
                 <div key={label} className="flex items-center gap-2 text-white/85 text-sm">
@@ -753,7 +753,7 @@ export default function HomePage() {
             className="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-gradient-to-r from-primary-600 to-primary-700 rounded-3xl overflow-hidden"
           >
             {[
-              { icon: Award, value: '5+', label: 'Years of Service', color: 'bg-white/20 text-white' },
+              { icon: Award, value: '7+', label: 'Years of Service', color: 'bg-white/20 text-white' },
               { icon: Users, value: '50K+', label: 'Patients Treated', color: 'bg-white/20 text-white' },
               { icon: MapPin, value: '5', label: 'Clinic Locations', color: 'bg-white/20 text-white' },
               { icon: Star, value: '4.9', label: 'Patient Rating', color: 'bg-white/20 text-white' },
@@ -809,7 +809,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 dark:text-gray-400">Serving from last</p>
-                    <p className="font-bold text-gray-900 dark:text-white text-sm">5+ Years</p>
+                    <p className="font-bold text-gray-900 dark:text-white text-sm">7+ Years</p>
                   </div>
                 </motion.div>
 
@@ -883,7 +883,7 @@ export default function HomePage() {
               <motion.div variants={fadeUp} className="grid grid-cols-3 gap-3 mb-7">
                 {[
                   { val: '50K+', lab: 'Patients', icon: Users },
-                  { val: '5+', lab: 'Years', icon: Award },
+                  { val: '7+', lab: 'Years', icon: Award },
                   { val: '12+', lab: 'Certifications', icon: GraduationCap },
                 ].map(({ val, lab, icon: Icon }) => (
                   <div key={lab} className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 shadow-sm border border-gray-100 dark:border-gray-700">
@@ -1009,7 +1009,7 @@ export default function HomePage() {
               <div className="grid grid-cols-2 gap-4">
               {[
                 { num: 50000, decimals: 0, suffix: '+', lab: 'Patients Treated',  icon: Users,  iconBg: 'bg-blue-500/35',   iconColor: 'text-blue-200',   glow: 'rgba(59,130,246,0.45)' },
-                { num: 5,     decimals: 0, suffix: '+', lab: 'Years of Service',  icon: Award,  iconBg: 'bg-teal-500/35',   iconColor: 'text-teal-200',   glow: 'rgba(20,184,166,0.45)' },
+                { num: 7,     decimals: 0, suffix: '+', lab: 'Years of Service',  icon: Award,  iconBg: 'bg-teal-500/35',   iconColor: 'text-teal-200',   glow: 'rgba(20,184,166,0.45)' },
                 { num: 5,     decimals: 0, suffix: '',  lab: 'Clinic Locations',  icon: MapPin, iconBg: 'bg-purple-500/35', iconColor: 'text-purple-200', glow: 'rgba(168,85,247,0.45)' },
                 { num: 4.9,   decimals: 1, suffix: '★', lab: 'Patient Rating',    icon: Star,   iconBg: 'bg-yellow-500/35', iconColor: 'text-yellow-200', glow: 'rgba(234,179,8,0.45)'  },
               ].map((s) => (
