@@ -58,12 +58,12 @@ export default function ClinicsPage() {
                 </div>
 
                 {/* Clinic Poster — full image, no cropping */}
-                <div className="relative overflow-hidden bg-white">
+                <div className="relative overflow-hidden bg-white aspect-[3/4]">
                   <img
                     src={`/images/clinic${clinic.id}.jpg`}
                     alt={clinic.name}
-                    className="w-full object-contain"
-                    style={{ display: 'block' }}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
                   />
                   <a
                     href={clinic.mapUrl}
@@ -108,7 +108,7 @@ export default function ClinicsPage() {
                       {clinic.emergency}
                     </span>
                     <Link
-                      to={`/appointment?clinic=${clinic.id}`}
+                      to={`/appointment?clinic=${clinic.id}#appointment-form`}
                       className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 dark:text-primary-400 hover:gap-2 transition-all"
                     >
                       Book Here <ChevronRight className="w-4 h-4" />

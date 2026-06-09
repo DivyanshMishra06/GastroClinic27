@@ -20,5 +20,16 @@ export function useDarkMode() {
     localStorage.setItem('darkMode', JSON.stringify(isDark));
   }, [isDark]);
 
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = (e) => {
+      if (localStorage.getItem('darkMode') === null) {
+        setIsDark(e.matches);
+      }
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   return [isDark, setIsDark];
 }

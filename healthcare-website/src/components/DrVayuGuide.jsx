@@ -27,14 +27,21 @@ export default function DrVayuGuide() {
   // Show intro on every visit to home page
   useEffect(() => {
     if (pathname === '/') {
-      setShowIntro(true);
-      setIntroComplete(false);
-      setBubbleOpen(false);
-      const t = setTimeout(() => {
+      const seen = sessionStorage.getItem('drVayuIntroDone');
+      if (!seen) {
+        setShowIntro(true);
+        setIntroComplete(false);
+        setBubbleOpen(false);
+        const t = setTimeout(() => {
+          setShowIntro(false);
+          setIntroComplete(true);
+          sessionStorage.setItem('drVayuIntroDone', '1');
+        }, 2000);
+        return () => clearTimeout(t);
+      } else {
         setShowIntro(false);
         setIntroComplete(true);
-      }, 2000);
-      return () => clearTimeout(t);
+      }
     } else {
       setShowIntro(false);
       setIntroComplete(true);
@@ -44,7 +51,7 @@ export default function DrVayuGuide() {
   // Show speech bubble after intro collapses — only on desktop (≥640px)
   useEffect(() => {
     if (!introComplete) return;
-    if (window.innerWidth >= 640) {
+    if (window.matchMedia('(min-width: 640px)').matches) {
       const t = setTimeout(() => setBubbleOpen(true), 500);
       return () => clearTimeout(t);
     }

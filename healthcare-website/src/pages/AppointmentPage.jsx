@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle, User, Phone, Clock, MapPin } from 'lucide-react';
 import { clinics, clinicTimeSlots } from '../data';
+import { WEB3FORMS_KEY } from '../lib/config';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -9,14 +11,24 @@ const fadeUp = {
 };
 
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'df8c7148-a922-45e5-bf4d-9bd60cf5cf6a';
+const CLINIC_DAYS = {
+  '1': { days: [1,2,3,4,5,6], label: 'Monday to Saturday' },
+  '2': { days: [5],           label: 'Fridays only' },
+  '3': { days: [2],           label: 'Tuesdays only' },
+  '4': { days: [4],           label: 'Thursdays only' },
+  '5': { days: [0],           label: 'Sundays only' },
+};
 
 const initForm = {
   name: '', mobile: '', age: '', gender: '', clinic: '', date: '', time: '', symptoms: '', type: 'In-Person',
 };
 
 export default function AppointmentPage() {
-  const [form, setForm] = useState(initForm);
+  const [searchParams] = useSearchParams();
+  const [form, setForm] = useState({
+    ...initForm,
+    clinic: searchParams.get('clinic') ?? '',
+  });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -31,6 +43,13 @@ export default function AppointmentPage() {
     if (!form.clinic) e.clinic = 'Select a clinic';
     if (!form.date) e.date = 'Select preferred date';
     if (!form.time) e.time = 'Select preferred time';
+    if (form.date && form.clinic && !e.date) {
+      const rule = CLINIC_DAYS[form.clinic];
+      if (rule) {
+        const day = new Date(form.date + 'T00:00:00').getDay();
+        if (!rule.days.includes(day)) e.date = `This clinic is open on ${rule.label}`;
+      }
+    }
     return e;
   };
 
@@ -81,6 +100,7 @@ export default function AppointmentPage() {
   const availableSlots = clinicTimeSlots[form.clinic] ?? [];
 
   const today = new Date().toISOString().split('T')[0];
+  const maxDate = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
   if (submitted) {
     return (
@@ -141,7 +161,7 @@ export default function AppointmentPage() {
       </section>
 
       {/* Form */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section id="appointment-form" className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="card p-4 sm:p-8 lg:p-12">
             <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white mb-8">Patient Details</h2>
@@ -212,7 +232,7 @@ export default function AppointmentPage() {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Preferred Date *</label>
-                  <input className="input-field" type="date" min={today} value={form.date} onChange={e => handleChange('date', e.target.value)} />
+                  <input className="input-field" type="date" min={today} max={maxDate} value={form.date} onChange={e => handleChange('date', e.target.value)} />
                   {errors.date && <p className="text-red-500 text-xs mt-1">{errors.date}</p>}
                 </div>
                 <div>

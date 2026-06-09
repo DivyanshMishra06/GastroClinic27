@@ -29,8 +29,8 @@ export default function TestimonialsPage() {
       <section className="bg-white dark:bg-gray-950 py-10 sm:py-12 border-b border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
           {[
-            { value: '4.9 / 5', label: 'Average Rating', sub: 'Based on 2,400+ reviews' },
-            { value: '98%', label: 'Recommend Clinic', sub: 'Would refer to family & friends' },
+            { value: '4.9 / 5', label: 'Average Rating', sub: 'Rated on Google Reviews' },
+            { value: '98%', label: 'Would Recommend', sub: 'Based on patient feedback' },
             { value: '50,000+', label: 'Patients Treated', sub: 'Across 5 locations since 2019' },
           ].map((s) => (
             <div key={s.label} className="py-2 sm:py-0 border-b sm:border-b-0 border-gray-100 dark:border-gray-800 last:border-b-0">

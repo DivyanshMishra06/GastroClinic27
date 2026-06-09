@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   Phone, Calendar, Star, ArrowRight, Shield, Award, Users, Clock,
   ChevronRight, ChevronLeft, Heart, Activity, Stethoscope, CheckCircle, MapPin, BookOpen,
-  Quote, BadgeCheck, GraduationCap, Microscope
+  Quote, BadgeCheck, GraduationCap, Microscope, MessageCircle, Syringe
 } from 'lucide-react';
 import { doctorInfo, clinicCredentials, clinicAchievements, testimonials, services } from '../data';
+import { WEB3FORMS_KEY } from '../lib/config';
+
+const SERVICE_ICON_MAP = { Activity, Stethoscope, Shield, Heart, MessageCircle, Users, Syringe };
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -145,16 +148,18 @@ const heroSlides = [
   { src: '/images/doctor.jpg',       label: 'Expert Gastroenterologist', sub: 'FMAS · FIAGES · DNB · MS' },
   { src: '/images/consultation.jpg', label: 'Patient-First Consultation',  sub: 'Compassionate Care' },
   { src: '/images/clinic1.jpg',      label: 'Shahjahanpur Clinic',         sub: 'Mon–Sat · 2–6 PM' },
-  { src: '/images/clinic2.jpg',      label: 'Tilhar Clinic',               sub: 'Every Thursday · 10 AM–1 PM' },
+  { src: '/images/clinic4.jpg',      label: 'Tilhar Clinic',               sub: 'Every Thursday · 10 AM–1 PM' },
 ];
 
 function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const shouldReduce = useReducedMotion();
 
   useEffect(() => {
+    if (shouldReduce) return;
     const t = setInterval(() => setCurrent(p => (p + 1) % heroSlides.length), 4000);
     return () => clearInterval(t);
-  }, []);
+  }, [shouldReduce]);
 
   return (
     <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
@@ -191,6 +196,7 @@ function HeroSlider() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
+            aria-label={`Go to slide ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-5 bg-white' : 'w-1.5 bg-white/40'}`}
           />
         ))}
@@ -209,11 +215,13 @@ const allClinics = [
 
 function ClinicShowcase() {
   const [active, setActive] = useState(0);
+  const shouldReduce = useReducedMotion();
 
   useEffect(() => {
+    if (shouldReduce) return;
     const t = setInterval(() => setActive(p => (p + 1) % allClinics.length), 4000);
     return () => clearInterval(t);
-  }, []);
+  }, [shouldReduce]);
 
   const clinic = allClinics[active];
 
@@ -232,7 +240,7 @@ function ClinicShowcase() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
             >
-              <img src={clinic.src} alt={clinic.label} className="w-full h-auto" />
+              <img src={clinic.src} alt={clinic.label} className="w-full h-auto" loading="lazy" />
               {/* Gradient overlay — desktop only */}
               <div className="hidden lg:block absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             </motion.div>
@@ -321,7 +329,7 @@ function ClinicShowcase() {
           >
             {/* Thumbnail */}
             <div className="w-12 h-10 lg:w-16 lg:h-14 rounded-xl overflow-hidden shrink-0">
-              <img src={c.src} alt={c.label} className="w-full h-full object-cover" />
+              <img src={c.src} alt={c.label} className="w-full h-full object-cover" loading="lazy" />
             </div>
 
             {/* Info */}
@@ -352,8 +360,6 @@ function ClinicShowcase() {
   );
 }
 
-const HOME_WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? 'df8c7148-a922-45e5-bf4d-9bd60cf5cf6a';
-
 function AppointmentSection() {
   const [form, setForm] = useState({ name: '', phone: '', condition: '', location: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
@@ -364,6 +370,10 @@ function AppointmentSection() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    if (!/^[6-9]\d{9}$/.test(form.phone.replace(/[\s+]/g, ''))) {
+      setSubmitError('Please enter a valid 10-digit Indian mobile number.');
+      return;
+    }
     setLoading(true);
     setSubmitError('');
     try {
@@ -371,7 +381,7 @@ function AppointmentSection() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: HOME_WEB3FORMS_KEY,
+          access_key: WEB3FORMS_KEY,
           subject: `New Appointment Request from ${form.name} – Gastro Clinic 27`,
           from_name: form.name,
           'Patient Name': form.name,
@@ -550,6 +560,7 @@ function AppointmentSection() {
                 src="/images/consultation.jpg"
                 alt="Doctor Consultation at Gastro Clinic 27"
                 className="w-full h-auto"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary-950/80 via-primary-900/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
@@ -795,6 +806,7 @@ export default function HomePage() {
                     src={doctorInfo.photo}
                     alt="Expert Gastroenterologist"
                     className="w-full h-full object-cover object-top"
+                    loading="lazy"
                   />
                 </div>
 
@@ -919,7 +931,9 @@ export default function HomePage() {
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s, i) => (
+            {services.map((s, i) => {
+              const ServiceIcon = SERVICE_ICON_MAP[s.icon] ?? Activity;
+              return (
               <motion.div
                 key={s.id}
                 initial="hidden"
@@ -929,15 +943,16 @@ export default function HomePage() {
                 variants={fadeUp}
                 whileHover={{ y: -8, scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.12)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="card p-6 cursor-pointer"
+                className="card p-6"
               >
                 <div className={`w-12 h-12 rounded-xl ${s.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <Activity className="w-6 h-6" />
+                  <ServiceIcon className="w-6 h-6" />
                 </div>
                 <h3 className="font-display font-semibold text-gray-900 dark:text-white mb-2">{s.title}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-2">{s.description}</p>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="text-center mt-10">
@@ -1004,6 +1019,7 @@ export default function HomePage() {
                   src="/images/consultation2.jpg"
                   alt="Gastro Clinic 27 – Doctor Consultation"
                   className="w-full h-auto"
+                  loading="lazy"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -1077,6 +1093,7 @@ export default function HomePage() {
                   src="/images/illness_reason.jpg"
                   alt="Gastro Clinic 27 – Common Gastro Illness Reasons"
                   className="w-full h-auto"
+                  loading="lazy"
                 />
               </motion.div>
 
@@ -1165,13 +1182,14 @@ export default function HomePage() {
                 variants={fadeUp}
                 whileHover={{ y: -8, scale: 1.01, boxShadow: '0 24px 48px rgba(0,0,0,0.12)' }}
                 transition={{ type: 'spring', stiffness: 250 }}
-                className="card overflow-hidden group cursor-pointer"
+                className="card overflow-hidden group"
               >
                 <div className="relative overflow-hidden bg-white dark:bg-gray-800">
                   <img
                     src={resource.img}
                     alt={resource.title}
                     className="w-full object-contain block"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <span className="absolute top-3 left-3 bg-primary-600 text-white text-xs font-semibold px-3 py-1 rounded-full">

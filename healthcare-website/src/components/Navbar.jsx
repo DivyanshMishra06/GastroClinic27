@@ -106,7 +106,7 @@ export default function Navbar() {
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
 
-              <Link to="/appointment" className="btn-primary text-sm py-2.5">
+              <Link to="/appointment#appointment-form" className="btn-primary text-sm py-2.5">
                 Book Appointment
               </Link>
             </div>
@@ -116,12 +116,15 @@ export default function Navbar() {
               <button
                 onClick={() => setIsDark(!isDark)}
                 className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                aria-label="Toggle dark mode"
               >
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isOpen}
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -162,7 +165,7 @@ export default function Navbar() {
                     {doctorInfo.phone}
                   </a>
                   <Link
-                    to="/appointment"
+                    to="/appointment#appointment-form"
                     className="block w-full text-center btn-primary text-sm py-3"
                   >
                     Book Appointment

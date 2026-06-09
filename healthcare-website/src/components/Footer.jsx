@@ -160,9 +160,9 @@ export default function Footer() {
             © {year} Gastro Clinic 27. All rights reserved. · Est. 2019 · Shahjahanpur, U.P.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</a>
-            <a href="#" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Disclaimer</a>
+            <Link to="/privacy" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</Link>
+            <Link to="/disclaimer" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Disclaimer</Link>
           </div>
         </div>
       </div>

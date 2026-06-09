@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  Stethoscope, Thermometer, Activity, Heart,
+  Stethoscope, Activity, Heart,
   MessageCircle, Shield, Syringe, Users, CheckCircle, ArrowRight
 } from 'lucide-react';
 import { services } from '../data';
 
-const iconMap = { Stethoscope, Thermometer, Activity, Heart, MessageCircle, Shield, Syringe, Users, CheckCircle };
+const iconMap = { Stethoscope, Activity, Heart, MessageCircle, Shield, Syringe, Users, CheckCircle };
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },

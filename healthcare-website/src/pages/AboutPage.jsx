@@ -89,7 +89,7 @@ export default function AboutPage() {
               <div className="card overflow-hidden lg:sticky lg:top-24">
                 <div className="bg-gradient-to-br from-primary-600 to-primary-800 p-8 text-center">
                   <div className="w-20 h-20 mx-auto mb-4">
-  <img src="/images/logo.png" alt="Gastro Clinic 27" className="w-full h-full object-contain" />
+  <img src="/images/logo.png" alt="Gastro Clinic 27" className="w-full h-full object-contain" loading="lazy" />
 </div>
 
                   <h2 className="font-display text-xl font-bold text-white">Gastro Clinic 27</h2>
