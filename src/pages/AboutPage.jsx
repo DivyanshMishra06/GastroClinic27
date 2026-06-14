@@ -21,7 +21,7 @@ const whyUs = [
   {
     icon: Shield,
     title: 'Expert, Certified Surgeons',
-    desc: 'Our associated doctors hold advanced qualifications — FMAS, FIAGES, DNB — and are registered with the Medical Council of India for your complete assurance.',
+    desc: 'Our associated doctors hold advanced qualifications — FMAS, FIAGES, DNB — and are registered with the National Medical Commission (NMC) for your complete assurance.',
     color: 'bg-blue-100 dark:bg-blue-950/40 text-blue-600',
   },
   {
@@ -39,7 +39,7 @@ const whyUs = [
   {
     icon: Target,
     title: 'Accurate Diagnosis',
-    desc: 'We use advanced endoscopy, colonoscopy, and imaging to ensure your condition is accurately diagnosed before any treatment is recommended.',
+    desc: 'We use advanced imaging and diagnostics to ensure your condition is accurately diagnosed before any treatment is recommended. GI Endoscopy & Colonoscopy coming soon.',
     color: 'bg-teal-100 dark:bg-teal-950/40 text-teal-600',
   },
   {
@@ -55,7 +55,7 @@ export default function AboutPage() {
     <div>
 
       {/* ───── HERO ───── */}
-      <section className="relative bg-gradient-to-br from-primary-900 to-primary-700 py-14 sm:py-20 lg:py-24 overflow-hidden">
+      <section className="relative bg-[rgb(104,183,164)] py-14 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-64 h-64 rounded-full border-4 border-white" />
           <div className="absolute bottom-10 left-10 w-40 h-40 rounded-full border-2 border-white" />
@@ -66,13 +66,13 @@ export default function AboutPage() {
               <Award className="w-4 h-4" /> Serving Shahjahanpur Region Since 2019
             </span>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">About Gastro Clinic 27</h1>
-            <p className="text-primary-200 text-base sm:text-xl max-w-2xl mx-auto mb-2">
+            <p className="text-white/85 text-base sm:text-xl max-w-2xl mx-auto mb-2">
               Trusted Specialist Gastroenterology Care for Every Family in Shahjahanpur and Surrounding Districts
             </p>
-            <p className="text-accent-300 text-sm mb-8 font-medium">
-              7+ Years · 50,000+ Patients · 5 Clinic Locations · MCI Registered Doctors
+            <p className="text-primary-950/70 text-sm mb-8 font-medium">
+              7+ Years · 50,000+ Patients · 5 Clinic Locations · NMC Registered Doctors
             </p>
-            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-xl shadow-primary-500/30 hover:-translate-y-0.5">
               <Calendar className="w-5 h-5" /> Book Appointment
             </Link>
           </motion.div>
@@ -80,14 +80,14 @@ export default function AboutPage() {
       </section>
 
       {/* ───── CLINIC STORY ───── */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12 items-start">
 
             {/* Clinic Stats Card */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-1">
               <div className="card overflow-hidden lg:sticky lg:top-24">
-                <div className="bg-gradient-to-br from-primary-600 to-primary-800 p-8 text-center">
+                <div className="bg-gradient-to-br from-[rgb(104,183,164)] to-primary-500 p-8 text-center">
                   <div className="w-20 h-20 mx-auto mb-4">
   <img src="/images/logo.png" alt="Gastro Clinic 27" className="w-full h-full object-contain" loading="lazy" />
 </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 What started as a single clinic in Shahjahanpur has grown into a five-location network, touching the lives of over 50,000 patients across Shahabad, Tilhar, Nigohi, and Powayan. Our patient-first approach means that no one is turned away due to cost — we have always believed that quality healthcare is a right, not a privilege.
               </p>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                Our doctors bring the same level of expertise you would expect from a major Delhi hospital — right here in Shahjahanpur. Whether it's a routine endoscopy, laparoscopic surgery, or managing a chronic digestive condition, every patient receives the same dedication, precision, and care.
+                Our doctors bring the same level of expertise you would expect from a major Delhi hospital — right here in Shahjahanpur. Whether it's laparoscopic surgery, managing a chronic digestive condition, or any other gastro concern, every patient receives the same dedication, precision, and care.
               </p>
 
               {/* Areas of Expertise */}
@@ -142,7 +142,7 @@ export default function AboutPage() {
       </section>
 
       {/* ───── WHY TRUST US ───── */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <span className="section-tag"><Star className="w-4 h-4" /> Why Choose Us</span>
@@ -180,7 +180,7 @@ export default function AboutPage() {
       </section>
 
       {/* ───── TEAM CREDENTIALS ───── */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
 
@@ -191,11 +191,11 @@ export default function AboutPage() {
                 Qualified & Registered Specialists
               </h2>
               <p className="text-gray-500 dark:text-gray-400 text-sm mb-8">
-                Every doctor associated with Gastro Clinic 27 is registered with the Medical Council of India and holds nationally and internationally recognised qualifications.
+                Every doctor associated with Gastro Clinic 27 is registered with the National Medical Commission (NMC) and holds nationally and internationally recognised qualifications.
               </p>
               <div className="space-y-4">
                 {clinicCredentials.map((cert, i) => (
-                  <motion.div key={cert} custom={i} variants={fadeUp} className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl">
+                  <motion.div key={cert} custom={i} variants={fadeUp} className="flex items-center gap-4 p-4 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950 rounded-2xl">
                     <div className="w-10 h-10 rounded-xl bg-primary-100 dark:bg-primary-950 flex items-center justify-center shrink-0">
                       <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400" />
                     </div>
@@ -235,7 +235,7 @@ export default function AboutPage() {
       </section>
 
       {/* ───── MILESTONES TIMELINE ───── */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <span className="section-tag"><Award className="w-4 h-4" /> Our Journey</span>
@@ -277,14 +277,14 @@ export default function AboutPage() {
       </section>
 
       {/* ───── CTA ───── */}
-      <section className="py-16 bg-gradient-to-r from-primary-600 to-primary-800">
+      <section className="py-16 bg-gradient-to-r from-[rgb(104,183,164)] to-primary-500">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl font-bold text-white mb-4">Ready to Get Expert Gastro Care?</h2>
-            <p className="text-primary-200 mb-8 max-w-xl mx-auto">
-              Book an appointment at Gastro Clinic 27 — 5 locations, affordable rates, expert MCI-registered doctors.
+            <p className="text-white/85 mb-8 max-w-xl mx-auto">
+              Book an appointment at Gastro Clinic 27 — 5 locations, affordable rates, expert NMC-registered doctors.
             </p>
-            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-xl shadow-primary-500/30 hover:-translate-y-0.5">
               <Calendar className="w-5 h-5" /> Book Your Appointment
             </Link>
           </motion.div>

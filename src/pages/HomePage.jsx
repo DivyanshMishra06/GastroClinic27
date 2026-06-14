@@ -177,7 +177,7 @@ function HeroSlider() {
             alt={heroSlides[current].label}
             className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-950/80 via-primary-900/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -267,7 +267,7 @@ function ClinicShowcase() {
                 </p>
                 <Link
                   to={`/appointment?clinic=${active + 1}#appointment-form`}
-                  className="inline-flex items-center gap-2 bg-white text-primary-700 text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5"
                 >
                   <Calendar className="w-4 h-4" /> Book at this Clinic
                 </Link>
@@ -305,7 +305,7 @@ function ClinicShowcase() {
               </div>
               <Link
                 to={`/appointment?clinic=${active + 1}#appointment-form`}
-                className="inline-flex items-center gap-1.5 bg-primary-600 text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-primary-700 transition-all shadow shrink-0"
+                className="inline-flex items-center gap-1.5 bg-primary-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-primary-600 transition-all shadow shrink-0"
               >
                 <Calendar className="w-3.5 h-3.5" /> Book
               </Link>
@@ -412,12 +412,12 @@ function AppointmentSection() {
     'Hernia',
     'Liver Problem / Jaundice',
     'IBS / Colitis',
-    'Endoscopy / Colonoscopy',
+    'Endoscopy / Colonoscopy (Coming Soon)',
     'Other',
   ];
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-950">
+    <section className="py-20 bg-white dark:bg-primary-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
 
@@ -562,7 +562,7 @@ function AppointmentSection() {
                 className="w-full h-auto"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-950/80 via-primary-900/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
                 <div>
                   <p className="text-white font-display font-bold text-base">Real Consultation Experience</p>
@@ -579,7 +579,7 @@ function AppointmentSection() {
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg mb-4">Why Book with Us?</h3>
               <ul className="space-y-3">
                 {[
-                  { icon: BadgeCheck, text: 'MCI Registered doctors — FMAS, FIAGES, DNB certified' },
+                  { icon: BadgeCheck, text: 'NMC Registered doctors — FMAS, FIAGES, DNB certified' },
                   { icon: Shield,     text: 'Affordable consultation & surgery charges' },
                   { icon: Clock,      text: 'Quick appointment confirmation via WhatsApp' },
                   { icon: MapPin,     text: '5 convenient clinic locations across the region' },
@@ -631,11 +631,11 @@ export default function HomePage() {
     <div className="overflow-hidden">
 
       {/* ───── HERO ───── */}
-      <section className="relative min-h-screen sm:min-h-[92vh] flex items-center bg-gradient-to-br from-primary-950 via-primary-900 to-primary-800 overflow-hidden">
+      <section className="relative min-h-screen sm:min-h-[92vh] flex items-center bg-[rgb(104,183,164)] overflow-hidden">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary-700/20 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-accent-600/20 blur-3xl" />
+          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-black/10 blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/5" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5" />
           {[
@@ -659,20 +659,20 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left — Clinic Brand Text */}
           <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/40 rounded-full px-4 py-2 text-white text-sm font-medium mb-6">
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               7+ Years of Trusted Care · 5 Clinic Locations
             </motion.div>
 
             <motion.div variants={fadeUp} className="mb-2">
-              <span className="text-accent-400 text-sm font-semibold tracking-widest uppercase">Est. 2019 · Shahjahanpur Region</span>
+              <span className="text-sm font-semibold tracking-widest uppercase bg-primary-950/70 border border-primary-900/40 text-white px-4 py-1.5 rounded-full">Est. 2019 · Shahjahanpur Region</span>
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="font-display text-4xl sm:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4">
               Gastro Clinic 27
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="text-primary-200 text-xl font-medium mb-2">
+            <motion.p variants={fadeUp} className="text-primary-950 text-xl font-semibold mb-2">
               Expert Digestive Care, Close to Home
             </motion.p>
 
@@ -681,11 +681,11 @@ export default function HomePage() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-7 py-3.5 rounded-xl hover:bg-primary-50 transition-all shadow-xl shadow-black/20 hover:-translate-y-0.5">
+              <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary-950 font-semibold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-black/20 hover:-translate-y-0.5">
                 <Calendar className="w-5 h-5" />
                 Book Appointment
               </Link>
-              <a href={`tel:${doctorInfo.phone}`} className="inline-flex items-center gap-2 bg-accent-600 hover:bg-accent-700 text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-accent-900/30 hover:-translate-y-0.5">
+              <a href={`tel:${doctorInfo.phone}`} className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-primary-500/30 hover:-translate-y-0.5">
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
@@ -698,7 +698,7 @@ export default function HomePage() {
                 { label: '5 Clinics', icon: MapPin },
               ].map(({ label, icon: Icon }) => (
                 <div key={label} className="flex items-center gap-2 text-white/85 text-sm">
-                  <Icon className="w-4 h-4 text-accent-400" />
+                  <Icon className="w-4 h-4 text-white" />
                   <span>{label}</span>
                 </div>
               ))}
@@ -715,7 +715,7 @@ export default function HomePage() {
           >
             <div className="relative">
               {/* Soft glow behind */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-400/20 to-primary-400/20 blur-2xl scale-110" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#4ebcaa]/25 to-[#2b90cf]/25 blur-2xl scale-110" />
 
               {/* Logo card */}
               <motion.div
@@ -738,8 +738,8 @@ export default function HomePage() {
               </motion.div>
 
               {/* Top-right decoration dot */}
-              <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-accent-400 shadow-lg shadow-accent-400/50" />
-              <div className="absolute -bottom-3 -left-3 w-4 h-4 rounded-full bg-primary-400 shadow-lg shadow-primary-400/50" />
+              <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-[#4ebcaa] shadow-lg shadow-[#4ebcaa]/50" />
+              <div className="absolute -bottom-3 -left-3 w-4 h-4 rounded-full bg-[#2b90cf] shadow-lg shadow-[#2b90cf]/50" />
             </div>
           </motion.div>
           </div>
@@ -748,13 +748,13 @@ export default function HomePage() {
         {/* Wave bottom */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 80V40C360 0 720 80 1440 20V80H0Z" className="fill-white dark:fill-gray-950" />
+            <path d="M0 80V40C360 0 720 80 1440 20V80H0Z" className="fill-white dark:fill-primary-950" />
           </svg>
         </div>
       </section>
 
       {/* ───── STATS BAR ───── */}
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section className="py-16 bg-white dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -776,7 +776,7 @@ export default function HomePage() {
       </section>
 
       {/* ───── DOCTOR PROFILE ───── */}
-      <section className="py-12 sm:py-20 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      <section className="py-12 sm:py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
@@ -793,10 +793,10 @@ export default function HomePage() {
 
               {/* Dotted pattern */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-20"
-                style={{ backgroundImage: 'radial-gradient(circle, #1a6feb 1.5px, transparent 1.5px)', backgroundSize: '12px 12px' }}
+                style={{ backgroundImage: 'radial-gradient(circle, #2b90cf 1.5px, transparent 1.5px)', backgroundSize: '12px 12px' }}
               />
               <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20"
-                style={{ backgroundImage: 'radial-gradient(circle, #0d9488 1.5px, transparent 1.5px)', backgroundSize: '12px 12px' }}
+                style={{ backgroundImage: 'radial-gradient(circle, #4ebcaa 1.5px, transparent 1.5px)', backgroundSize: '12px 12px' }}
               />
 
               {/* Doctor photo */}
@@ -857,14 +857,14 @@ export default function HomePage() {
               {/* Name & Title */}
               <motion.div variants={fadeUp} className="mt-4 mb-2">
                 <h2 className="font-display text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
-                  We Have <span className="text-indigo-500">Expert Gastro</span> &<br />
+                  We Have <span className="text-primary-500">Expert Gastro</span> &<br />
                   <span className="gradient-text">Laparoscopic Surgeons</span>
                 </h2>
               </motion.div>
 
               {/* Credentials row */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-2 mb-5">
-                {['MBBS', 'MS', 'DNB', 'FMAS', 'FIAGES', 'MCI Registered'].map(c => (
+                {['MBBS', 'MS', 'DNB', 'FMAS', 'FIAGES', 'NMC Registered'].map(c => (
                   <span key={c} className="inline-flex items-center gap-1 bg-primary-50 dark:bg-primary-950/50 text-primary-700 dark:text-primary-400 text-xs font-bold px-3 py-1.5 rounded-lg border border-primary-100 dark:border-primary-900">
                     <BadgeCheck className="w-3.5 h-3.5" /> {c}
                   </span>
@@ -922,7 +922,7 @@ export default function HomePage() {
       </section>
 
       {/* ───── SERVICES PREVIEW ───── */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-8 sm:mb-12">
             <span className="section-tag"><Stethoscope className="w-4 h-4" /> Our Services</span>
@@ -964,7 +964,7 @@ export default function HomePage() {
       </section>
 
       {/* ───── CLINIC GALLERY CAROUSEL ───── */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-8 sm:mb-12">
             <span className="section-tag"><MapPin className="w-4 h-4" /> Our Clinics</span>
@@ -985,23 +985,26 @@ export default function HomePage() {
       </section>
 
       {/* ───── FULL-WIDTH IMPACT BANNER ───── */}
-      <section className="relative py-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-950 to-primary-900" />
+      <section className="relative py-12 overflow-hidden bg-[rgb(104,183,164)]">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-black/10 blur-3xl" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <span className="text-accent-400 text-sm font-semibold tracking-widest uppercase">Est. 2019 · Shahjahanpur</span>
+              <span className="text-primary-950/70 text-sm font-semibold tracking-widest uppercase">Est. 2019 · Shahjahanpur</span>
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-2 mb-3 leading-tight">
-                50,000+ Lives <br /><span className="text-accent-400">Transformed</span>
+                50,000+ Lives <br /><span className="text-primary-950">Transformed</span>
               </h2>
               <p className="text-white/90 text-base leading-relaxed mb-5">
                 Gastro Clinic 27 has been the region's most trusted digestive care network since 2019 — bringing specialist-level care within reach of every family in Shahjahanpur.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-6 py-3 rounded-xl hover:bg-primary-50 transition-all shadow-lg hover:-translate-y-0.5">
+                <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary-950 font-semibold px-6 py-3 rounded-xl transition-all shadow-lg shadow-black/20 hover:-translate-y-0.5">
                   <Calendar className="w-4 h-4" /> Book Appointment
                 </Link>
-                <Link to="/about" className="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-all hover:-translate-y-0.5">
+                <Link to="/about" className="inline-flex items-center gap-2 border border-primary-950/40 text-primary-950 font-semibold px-6 py-3 rounded-xl hover:bg-primary-950/10 transition-all hover:-translate-y-0.5">
                   Our Story <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -1038,7 +1041,7 @@ export default function HomePage() {
       </section>
 
       {/* ───── ABOUT GASTRO CLINIC 27 ───── */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
@@ -1133,7 +1136,7 @@ export default function HomePage() {
                 >
                   <p className="text-white font-display font-bold text-sm">Certified Specialists</p>
                   <div className="flex flex-col gap-1.5">
-                    {['FMAS', 'FIAGES', 'DNB', 'MCI Reg.'].map(c => (
+                    {['FMAS', 'FIAGES', 'DNB', 'NMC Reg.'].map(c => (
                       <div key={c} className="flex items-center gap-1.5">
                         <BadgeCheck className="w-3.5 h-3.5 text-white/80 shrink-0" />
                         <span className="text-white/90 text-xs font-medium">{c}</span>
@@ -1163,7 +1166,7 @@ export default function HomePage() {
       </section>
 
       {/* ───── EDUCATIONAL RESOURCES ───── */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-8 sm:mb-12">
             <span className="section-tag"><BookOpen className="w-4 h-4" /> Health Education</span>
@@ -1207,7 +1210,7 @@ export default function HomePage() {
       </section>
 
       {/* ───── TESTIMONIALS PREVIEW ───── */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-8 sm:mb-12">
             <span className="section-tag"><Star className="w-4 h-4" /> Patient Reviews</span>
@@ -1291,7 +1294,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+                <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-xl shadow-primary-500/30 hover:-translate-y-0.5">
                   <Calendar className="w-5 h-5" />
                   Book Appointment Now
                 </Link>

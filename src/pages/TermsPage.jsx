@@ -30,7 +30,7 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section className="py-16 bg-white dark:bg-primary-950">
         <motion.div
           initial="hidden"
           animate="visible"

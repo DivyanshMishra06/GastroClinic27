@@ -104,7 +104,7 @@ export default function AppointmentPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[rgba(104,183,164,0.12)] dark:bg-primary-950 flex items-center justify-center px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -146,14 +146,14 @@ export default function AppointmentPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 py-12 sm:py-16 lg:py-24">
+      <section className="bg-[rgb(104,183,164)] py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <Calendar className="w-4 h-4" /> Online Booking
             </span>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Book an Appointment</h1>
-            <p className="text-primary-200 text-base sm:text-xl max-w-xl mx-auto">
+            <p className="text-white/85 text-base sm:text-xl max-w-xl mx-auto">
               Fill out the form below and we'll confirm your slot within 30 minutes.
             </p>
           </motion.div>
@@ -161,7 +161,7 @@ export default function AppointmentPage() {
       </section>
 
       {/* Form */}
-      <section id="appointment-form" className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section id="appointment-form" className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="card p-4 sm:p-8 lg:p-12">
             <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white mb-8">Patient Details</h2>

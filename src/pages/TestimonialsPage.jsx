@@ -11,14 +11,14 @@ export default function TestimonialsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-900 to-accent-800 py-14 sm:py-20 lg:py-24">
+      <section className="bg-[rgb(104,183,164)] py-14 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <Star className="w-4 h-4 fill-white/80" /> Patient Stories
             </span>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">What Patients Say</h1>
-            <p className="text-primary-200 text-base sm:text-xl max-w-xl mx-auto">
+            <p className="text-white/85 text-base sm:text-xl max-w-xl mx-auto">
               Thousands of families across Shahjahanpur trust Gastro Clinic 27 for their digestive health. Here are some of their stories.
             </p>
           </motion.div>
@@ -26,7 +26,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Stats Row */}
-      <section className="bg-white dark:bg-gray-950 py-10 sm:py-12 border-b border-gray-100 dark:border-gray-800">
+      <section className="bg-white dark:bg-primary-950 py-10 sm:py-12 border-b border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
           {[
             { value: '4.9 / 5', label: 'Average Rating', sub: 'Rated on Google Reviews' },
@@ -43,7 +43,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
@@ -94,7 +94,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Leave Review CTA */}
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section className="py-16 bg-white dark:bg-primary-950">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <div className="flex justify-center gap-1 mb-4">

@@ -15,9 +15,9 @@ export const doctorInfo = {
   tagline: "Better Digestion, Better Life",
   taglineHindi: "स्वस्थ पाचन, बेहतर जीवन",
 
-  bio: "Gastro Clinic 27 is a trusted network of specialist gastroenterology clinics serving the people of Shahjahanpur and surrounding districts since 2019. Our team of Medical Council–registered doctors brings advanced qualifications including FMAS, FIAGES, and DNB — delivering expert laparoscopic surgery, endoscopy, and comprehensive digestive health care at rates accessible to everyone, right in their hometown.",
+  bio: "Gastro Clinic 27 is a trusted network of specialist gastroenterology clinics serving the people of Shahjahanpur and surrounding districts since 2019. Our team of NMC-registered doctors brings advanced qualifications including FMAS, FIAGES, and DNB — delivering expert laparoscopic surgery and comprehensive digestive health care at rates accessible to everyone, right in their hometown.",
 
-  shortBio: "Trusted gastro care across 5 locations in Shahjahanpur region. Expert, MCI-registered surgeons. Affordable rates. Accessible to all.",
+  shortBio: "Trusted gastro care across 5 locations in Shahjahanpur region. Expert, NMC-registered surgeons. Affordable rates. Accessible to all.",
 
   stats: {
     experience: 7,
@@ -28,12 +28,17 @@ export const doctorInfo = {
 
   specialties: [
     "Laparoscopic Surgery",
-    "GI Endoscopy & Colonoscopy",
+    "GI Endoscopy & Colonoscopy (Coming Soon)",
     "Gallbladder Stone Treatment",
     "Hernia & Appendix Surgery",
     "Piles, Fissure & Fistula",
     "Liver & Pancreas Disorders",
     "IBS & Colitis Management",
+    "Digestive Issues",
+    "Gastrointestinal Ailments",
+    "Robotic Surgery (Coming Soon)",
+    "Bariatric Procedures (Coming Soon)",
+    "Weight Management",
     "Affordable Patient Care",
   ],
 };
@@ -80,11 +85,11 @@ export const clinicMilestones = [
 
 // Team credentials — held by clinic-associated doctors (not attributed to a named individual)
 export const clinicCredentials = [
-  "All associated doctors are registered with the Medical Council of India (MCI)",
-  "Our surgeons hold FMAS – Fellowship in Minimal Access Surgery (World Laparoscopy Hospital, Gurugram)",
+  "All associated doctors are registered with the National Medical Commission (NMC)",
+  "Our surgeons hold FMAS – Fellowship in Minimal Access Surgery",
   "FIAGES – Fellow of the Indian Association of Gastrointestinal Endo Surgeons",
-  "DNB (Surgery) – National Board of Examinations, India",
-  "MS (General Surgery) – Government Medical College / Dr. RML Hospital, New Delhi",
+  "DNB – National Board of Examinations, India",
+  "MS (Surgery) – Prestigious Government Medical Colleges",
   "Advanced Laparoscopic & Therapeutic Endoscopy trained specialists",
   "Member – Indian Medical Association (IMA)",
 ];
@@ -104,7 +109,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Shahjahanpur",
     address: "Main Market Area, Shahjahanpur, Uttar Pradesh",
     area: "Shahjahanpur",
-    phone: "+91 7007311392",
+    phone: "+91 9795438953",
     timing: "Mon–Sat: 2:00 PM – 6:00 PM (Closed Sundays)",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Shahjahanpur+UP",
@@ -117,7 +122,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Nigohi",
     address: "Nigohi, District Shahjahanpur, Uttar Pradesh",
     area: "Nigohi",
-    phone: "+91 7007311392",
+    phone: "+91 7460838114",
     timing: "Every Friday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Nigohi+Shahjahanpur+UP",
@@ -130,7 +135,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Shahabad",
     address: "Shahabad, District Shahjahanpur, Uttar Pradesh",
     area: "Shahabad",
-    phone: "+91 7007311392",
+    phone: "+91 7460838114",
     timing: "Every Tuesday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Shahabad+Shahjahanpur+UP",
@@ -143,7 +148,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Tilhar",
     address: "Tilhar, Tehsil Tilhar, Shahjahanpur, Uttar Pradesh",
     area: "Tilhar",
-    phone: "+91 7007311392",
+    phone: "+91 9621965242",
     timing: "Every Thursday: 10:00 AM – 1:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Tilhar+Shahjahanpur+UP",
@@ -156,7 +161,7 @@ export const clinics = [
     name: "Gastro Clinic 27 – Powayan",
     address: "Powayan, District Shahjahanpur, Uttar Pradesh",
     area: "Powayan",
-    phone: "+91 7007311392",
+    phone: "+91 8853810978",
     timing: "Every Sunday: 2:00 PM – 6:00 PM",
     emergency: "Appointment Based – Call",
     mapUrl: "https://maps.google.com/?q=Powayan+Shahjahanpur+UP",
@@ -179,11 +184,11 @@ export const clinicTimeSlots = {
 export const services = [
   {
     id: 1,
-    title: "GI Endoscopy",
+    title: "GI Endoscopy (Coming Soon)",
     description: "Advanced diagnostic upper GI endoscopy and colonoscopy for accurate diagnosis of digestive disorders, ulcers, and polyps.",
     icon: "Activity",
     color: "bg-blue-50 dark:bg-blue-950/30 text-blue-600",
-    features: ["Upper GI Endoscopy", "Colonoscopy", "Biopsy", "Polypectomy"],
+    features: ["Upper GI Endoscopy (Coming Soon)", "Colonoscopy (Coming Soon)", "Biopsy", "Polypectomy"],
   },
   {
     id: 2,
@@ -318,8 +323,8 @@ export const faqs = [
     a: "Yes, our team of FMAS and FIAGES certified laparoscopic surgeons perform surgeries for gallbladder stones, hernia, appendix, and other conditions at our primary facility.",
   },
   {
-    q: "Can I get an endoscopy done at your clinic?",
-    a: "Yes, upper GI endoscopy and colonoscopy are available. Please call beforehand to schedule as endoscopy requires prior preparation and fasting.",
+    q: "Will GI Endoscopy and Colonoscopy be available at your clinic?",
+    a: "GI Endoscopy and Colonoscopy are coming soon at Gastro Clinic 27. Please call us to stay updated on availability and to get notified when this service launches.",
   },
   {
     q: "Does Gastro Clinic 27 treat liver diseases?",

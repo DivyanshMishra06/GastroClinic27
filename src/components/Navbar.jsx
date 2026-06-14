@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <>
       {/* Info Banner */}
-      <div className="bg-gradient-to-r from-primary-700 to-accent-700 text-white text-center py-2 px-4 text-xs sm:text-sm font-medium">
+      <div className="bg-gradient-to-r from-[rgb(104,183,164)] to-primary-500 text-white text-center py-2 px-4 text-xs sm:text-sm font-medium">
         <MapPin className="inline w-3.5 h-3.5 mr-1 mb-0.5" />
         <span className="hidden sm:inline">Mon–Sat: Shahjahanpur · Tue: Shahabad · Thu: Tilhar · Fri: Nigohi · Sun: Powayan — </span>
         <span className="sm:hidden">OPD at 5 locations — </span>
@@ -47,8 +47,8 @@ export default function Navbar() {
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-lg shadow-black/5'
-            : 'bg-white dark:bg-gray-950'
+            ? 'bg-white/95 dark:bg-primary-950/95 backdrop-blur-md shadow-lg shadow-black/5'
+            : 'bg-white dark:bg-primary-950'
         }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,7 +140,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950"
+              className="lg:hidden border-t border-gray-100 dark:border-primary-900 bg-white dark:bg-primary-950"
             >
               <div className="px-4 py-4 space-y-1">
                 {navLinks.map((link) => (

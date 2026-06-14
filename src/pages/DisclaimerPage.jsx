@@ -30,7 +30,7 @@ export default function DisclaimerPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section className="py-16 bg-white dark:bg-primary-950">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -62,7 +62,7 @@ export default function DisclaimerPage() {
           </Section>
 
           <Section title="5. Credentials and Registration">
-            <p>All doctors associated with Gastro Clinic 27 are registered with the Medical Council of India. Credentials and qualifications listed on this website are accurate to the best of our knowledge at the time of publication.</p>
+            <p>All doctors associated with Gastro Clinic 27 are registered with the National Medical Commission (NMC). Credentials and qualifications listed on this website are accurate to the best of our knowledge at the time of publication.</p>
           </Section>
 
           <Section title="6. Contact for Medical Advice">

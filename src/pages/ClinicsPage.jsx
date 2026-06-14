@@ -12,7 +12,7 @@ export default function ClinicsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-accent-800 to-primary-900 py-14 sm:py-20 lg:py-24 overflow-hidden">
+      <section className="relative bg-[rgb(104,183,164)] py-14 sm:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-64 h-64 rounded-full border-4 border-white" />
         </div>
@@ -22,7 +22,7 @@ export default function ClinicsPage() {
               <MapPin className="w-4 h-4" /> Our Locations
             </span>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">5 Clinics in Shahjahanpur Region</h1>
-            <p className="text-accent-200 text-base sm:text-xl max-w-xl mx-auto">
+            <p className="text-white/85 text-base sm:text-xl max-w-xl mx-auto">
               Expert gastro care close to where you live — Shahjahanpur, Nigohi, Shahabad, Tilhar & Powayan.
             </p>
           </motion.div>
@@ -30,7 +30,7 @@ export default function ClinicsPage() {
       </section>
 
       {/* Clinics Grid */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {clinics.map((clinic, i) => (
@@ -122,14 +122,14 @@ export default function ClinicsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-white dark:bg-gray-950">
+      <section className="py-16 bg-white dark:bg-primary-950">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Book Your Appointment Today
             </h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">
-              Call +91 7007311392 to book or walk in during OPD hours at your nearest Gastro Clinic 27 location.
+              Call your nearest clinic directly or walk in during OPD hours. Phone numbers are listed on each clinic card above.
             </p>
             <Link to="/appointment#appointment-form" className="btn-primary inline-flex items-center gap-2">
               <Calendar className="w-5 h-5" /> Book Online Consultation
