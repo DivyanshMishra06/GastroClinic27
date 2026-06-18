@@ -98,12 +98,6 @@ function GlassStatCard({ num, decimals = 0, suffix = '', label, icon: Icon, icon
   );
 }
 
-const clinicPhotos = [
-  { src: '/images/clinic1.jpg', label: 'Shahjahanpur Clinic' },
-  { src: '/images/clinic2.jpg', label: 'Tilhar Clinic' },
-  { src: '/images/clinic3.jpg', label: 'Nigohi Clinic' },
-];
-
 const educationResources = [
   {
     img: '/images/digestive-system.jpg',
@@ -143,67 +137,6 @@ const clinicValues = [
   { icon: MapPin, label: '5 Locations', desc: 'Clinics across Shahjahanpur region', color: 'bg-orange-100 dark:bg-orange-950/40 text-orange-600' },
   { icon: Users, label: '50,000+ Patients', desc: 'Trusted by families across the district', color: 'bg-purple-100 dark:bg-purple-950/40 text-purple-600' },
 ];
-
-const heroSlides = [
-  { src: '/images/doctor.jpg',       label: 'Expert Gastroenterologist', sub: 'FMAS · FIAGES · DNB · MS' },
-  { src: '/images/consultation.jpg', label: 'Patient-First Consultation',  sub: 'Compassionate Care' },
-  { src: '/images/clinic1.jpg',      label: 'Shahjahanpur Clinic',         sub: 'Mon–Sat · 2–6 PM' },
-  { src: '/images/clinic4.jpg',      label: 'Tilhar Clinic',               sub: 'Every Thursday · 10 AM–1 PM' },
-];
-
-function HeroSlider() {
-  const [current, setCurrent] = useState(0);
-  const shouldReduce = useReducedMotion();
-
-  useEffect(() => {
-    if (shouldReduce) return;
-    const t = setInterval(() => setCurrent(p => (p + 1) % heroSlides.length), 4000);
-    return () => clearInterval(t);
-  }, [shouldReduce]);
-
-  return (
-    <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.97 }}
-          transition={{ duration: 0.7, ease: 'easeInOut' }}
-          className="absolute inset-0"
-        >
-          <img
-            src={heroSlides[current].src}
-            alt={heroSlides[current].label}
-            className="w-full h-full object-cover object-top"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="absolute bottom-5 left-5 right-5"
-          >
-            <p className="text-white font-display font-bold text-lg leading-tight">{heroSlides[current].label}</p>
-            <p className="text-white/90 text-xs mt-0.5">{heroSlides[current].sub}</p>
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Dot indicators */}
-      <div className="absolute top-4 right-4 flex gap-1.5 z-10">
-        {heroSlides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'w-5 bg-white' : 'w-1.5 bg-white/40'}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const allClinics = [
   { src: '/images/clinic1.jpg', label: 'Shahjahanpur', day: 'Mon – Sat',      time: '2:00 PM – 6:00 PM',  tag: 'Main Clinic' },
@@ -1270,18 +1203,20 @@ export default function HomePage() {
       <AppointmentSection />
 
       {/* ───── CTA BANNER ───── */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative overflow-hidden bg-primary-950">
         {/* Background clinic image */}
-        <div className="absolute inset-0">
+        
           <img
-            src="/images/clinic4.jpg"
+            src="/images/clinic_img1.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full block"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/90 to-primary-700/85" />
-        </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/70 via-primary-950/60 to-primary-950/75" />
+        
 
-        <div className="relative max-w-4xl mx-auto px-4 text-center">
+       
+        <div className="relative max-w-4xl mx-auto px-4 text-center py-16 w-full">
+
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
               Gut Problem? Don't Ignore It.
@@ -1308,6 +1243,7 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
+        
       </section>
 
     </div>

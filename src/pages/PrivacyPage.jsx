@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Shield } from 'lucide-react';
 
+const LAST_UPDATED = 'June 2026';
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -25,7 +27,7 @@ export default function PrivacyPage() {
               <Shield className="w-4 h-4" /> Legal
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Privacy Policy</h1>
-            <p className="text-primary-200 max-w-xl mx-auto">Last updated: June 2026</p>
+            <p className="text-primary-200 max-w-xl mx-auto">Last updated: {LAST_UPDATED}</p>
           </motion.div>
         </div>
       </section>

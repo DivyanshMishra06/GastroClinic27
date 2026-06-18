@@ -162,7 +162,47 @@ export default function AppointmentPage() {
 
       {/* Form */}
       <section id="appointment-form" className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          
+<div className="grid lg:grid-cols-3 gap-8 items-start">
+
+            {/* OPD Schedule Sidebar */}
+            <div className="lg:col-span-1 space-y-4">
+              <div className="card p-6">
+                <h3 className="font-display font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-primary-500" /> OPD Schedule
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    { place: 'Shahjahanpur', time: 'Mon–Sat: 2:00 PM – 6:00 PM', note: 'Closed Sundays' },
+                    { place: 'Nigohi',       time: 'Every Friday: 10:00 AM – 1:00 PM' },
+                    { place: 'Shahabad',     time: 'Every Tuesday: 10:00 AM – 1:00 PM' },
+                    { place: 'Tilhar',       time: 'Every Thursday: 10:00 AM – 1:00 PM' },
+                    { place: 'Powayan',      time: 'Every Sunday: 2:00 PM – 6:00 PM' },
+                  ].map(({ place, time, note }) => (
+                    <div key={place} className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-primary-500 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm text-gray-800 dark:text-white">{place}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{time}</p>
+                        {note && <p className="text-xs text-red-400">{note}</p>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="card p-6 flex items-center gap-4">
+                <Phone className="w-8 h-8 text-primary-500 shrink-0" />
+                <div>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Prefer to call?</p>
+                  <a href="tel:+917007311392" className="font-bold text-gray-900 dark:text-white">+91 7007311392</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Form */}
+            <div className="lg:col-span-2">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="card p-4 sm:p-8 lg:p-12">
             <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white mb-8">Patient Details</h2>
 
@@ -280,6 +320,8 @@ export default function AppointmentPage() {
               </p>
             </form>
           </motion.div>
+            </div> {/* closes lg:col-span-2 */}
+          </div> {/* closes grid */}
         </div>
       </section>
     </div>
