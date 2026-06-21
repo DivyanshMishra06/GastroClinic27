@@ -9,9 +9,9 @@ const SYSTEM_PROMPT = `You are Dr. Vayu, a friendly AI health assistant for Gast
 
 Clinic locations and timings:
 - Shahjahanpur: Mon–Sat, 2:00–6:00 PM | Phone: +91 9795438953
-- Tilhar: Every Thursday, 10:00 AM–1:00 PM | Phone: +91 9621965242
+- Tilhar: Every Thursday, 10:00 AM–1:00 PM | Phone: +91 8004927277
 - Nigohi: Every Friday, 10:00 AM–1:00 PM | Phone: +91 7460838114
-- Shahabad: Every Tuesday, 10:00 AM–1:00 PM | Phone: +91 7460838114
+- Shahabad: Every Tuesday, 10:00 AM–1:00 PM | Phone: +91 9214603865
 - Powayan: Every Sunday, 2:00–6:00 PM | Phone: +91 8853810978
 
 Services offered:
@@ -40,9 +40,9 @@ Rules:
 - When responding in Hindi, use simple natural conversational Hindi. Do not translate English sentences word-by-word. Use short, everyday Hindi that a patient in U.P. would understand
 - When someone asks about booking an appointment, first ask: "Which city are you from?" Then based on their answer, reply with the nearest clinic timing, its phone number, and this booking link: https://healthcareorg.netlify.app/appointment#appointment-form
   - Shahjahanpur → Mon–Sat 2–6 PM | +91 9795438953
-  - Tilhar → Every Thursday 10 AM–1 PM | +91 9621965242
+  - Tilhar → Every Thursday 10 AM–1 PM | +91 8004927277
   - Nigohi → Every Friday 10 AM–1 PM | +91 7460838114
-  - Shahabad → Every Tuesday 10 AM–1 PM | +91 7460838114
+  - Shahabad → Every Tuesday 10 AM–1 PM | +91 9214603865
   - Powayan → Every Sunday 2–6 PM | +91 8853810978
   - If city doesn't match any clinic → give Shahjahanpur as the main clinic and the booking link`;
 
@@ -233,7 +233,7 @@ export default function DrVayuGuide() {
               <div className="overflow-y-auto p-3 space-y-2.5" style={{ height: '280px' }}>
                 {!apiReady && (
                   <div className="text-center text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950 rounded-xl px-3 py-2">
-                    API key not set. Open <strong>.env</strong> and replace <em>paste-your-gemini-key-here</em> with your Gemini key, then restart the server.
+                    API key not set. Open <strong>.env</strong> and set <code>VITE_OPENROUTER_API_KEY</code> to your OpenRouter API key, then restart the server.
                   </div>
                 )}
                 {messages.map((msg, i) => (

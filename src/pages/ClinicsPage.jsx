@@ -120,7 +120,18 @@ export default function ClinicsPage() {
           </div>
         </div>
       </section>
-
+       {/* Clinic Photo Banner */}
+      <section className="py-16 bg-white dark:bg-primary-950">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="card overflow-hidden shadow-lg">
+            <img src="/images/hospital.jpg" alt="Gastro Clinic 27 – Powayan" className="w-full h-auto" loading="lazy" />
+            <div className="p-4 flex items-center gap-3">
+              <MapPin className="w-4 h-4 text-gray-400 shrink-0" />
+              <p className="text-sm text-gray-600 dark:text-gray-300">{clinics[4].address}</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
       {/* CTA */}
       <section className="py-16 bg-white dark:bg-primary-950">
         <div className="max-w-3xl mx-auto px-4 text-center">

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -10,6 +11,13 @@ const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6 } }),
 };
+const clinicImages = [
+  { src: '/images/logo.png', label: 'Shahjahanpur Clinic' },
+  { src: '/images/clinic_img2.jpg', label: 'Tilhar Clinic' },
+  { src: '/images/clinic_img1.jpg', label: 'Nigohi Clinic' },
+  { src: '/images/clinic_img4.jpg', label: 'Shahabad Clinic' },
+ 
+];
 
 const whyUs = [
   {
@@ -49,9 +57,16 @@ const whyUs = [
     color: 'bg-green-100 dark:bg-green-950/40 text-green-600',
   },
 ];
+  export default function AboutPage() {
+  const [current, setCurrent] = useState(0);        
 
-export default function AboutPage() {
-  return (
+  useEffect(() => {
+    const t = setInterval(() => setCurrent(p => (p + 1) % clinicImages.length), 3000);
+    return () => clearInterval(t);
+  }, []);
+
+  return (                                           
+
     <div>
 
       {/* ───── HERO ───── */}
@@ -116,9 +131,29 @@ export default function AboutPage() {
 
             {/* Story Text */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-2">
-              <span className="section-tag"><BookOpen className="w-4 h-4" /> Our Story</span>
+             
               <h2 className="font-display text-3xl font-bold text-gray-900 dark:text-white mb-6">Bringing Expert Gastro Care to Every Doorstep</h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">{doctorInfo.bio}</p>
+      
+             <div className="relative rounded-2xl overflow-hidden mb-6 shadow-lg h-96 bg-white">
+             <img
+             src={clinicImages[current].src}
+             alt={clinicImages[current].label}
+             className="w-full h-full object-contain transition-all duration-700"
+            />
+           <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
+           {clinicImages.map((_, i) => (
+           <button
+           key={i}
+           onClick={() => setCurrent(i)}
+          className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-white scale-125' : 'bg-white/50'}`}
+         />
+        ))}
+       </div>
+       </div>
+ <span className="section-tag"><BookOpen className="w-4 h-4" /> Our Story</span>
+<p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">{doctorInfo.bio}</p>
+            
+
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">
                 What started as a single clinic in Shahjahanpur has grown into a five-location network, touching the lives of over 50,000 patients across Shahabad, Tilhar, Nigohi, and Powayan. Our patient-first approach means that no one is turned away due to cost — we have always believed that quality healthcare is a right, not a privilege.
               </p>
