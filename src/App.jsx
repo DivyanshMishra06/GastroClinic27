@@ -1,20 +1,61 @@
 import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import DrVayuGuide from './components/DrVayuGuide';
 import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ClinicsPage from './pages/ClinicsPage';
-import ServicesPage from './pages/ServicesPage';
-import AppointmentPage from './pages/AppointmentPage';
-import TestimonialsPage from './pages/TestimonialsPage';
-import ContactPage from './pages/ContactPage';
-import PrivacyPage from './pages/PrivacyPage';
-import TermsPage from './pages/TermsPage';
-import DisclaimerPage from './pages/DisclaimerPage';
+
+
+const AboutPage        = lazy(() => import('./pages/AboutPage'));
+const ClinicsPage      = lazy(() => import('./pages/ClinicsPage'));
+const ServicesPage     = lazy(() => import('./pages/ServicesPage'));
+const AppointmentPage  = lazy(() => import('./pages/AppointmentPage'));
+const TestimonialsPage = lazy(() => import('./pages/TestimonialsPage'));
+const ContactPage      = lazy(() => import('./pages/ContactPage'));
+const PrivacyPage      = lazy(() => import('./pages/PrivacyPage'));
+const TermsPage        = lazy(() => import('./pages/TermsPage'));
+const DisclaimerPage   = lazy(() => import('./pages/DisclaimerPage'));
+
+function SplashScreen({ onDone }) {
+  useEffect(() => {
+    const t = setTimeout(onDone, 2000);
+    return () => clearTimeout(t);
+  }, [onDone]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[9999] bg-white flex items-center justify-center"
+      exit={{ opacity: 0, transition: { duration: 0.6, ease: 'easeInOut' } }}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.75 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="flex flex-col items-center gap-4"
+      >
+        <img src="/images/logo.png" alt="Gastro Clinic 27" className="w-24 h-24 object-contain" />
+        <div className="text-center">
+          <p className="font-display font-bold text-primary-900 text-2xl tracking-tight">Gastro Clinic 27</p>
+          <p className="text-accent-500 text-sm font-medium tracking-widest uppercase mt-1">Expert Digestive Care</p>
+        </div>
+        <div className="flex gap-1.5 mt-3">
+          {[0, 1, 2].map((i) => (
+            <motion.span
+              key={i}
+              className="block w-2 h-2 rounded-full bg-primary-400"
+              animate={{ opacity: [0.25, 1, 0.25] }}
+              transition={{ duration: 1, repeat: Infinity, delay: i * 0.22 }}
+            />
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+
 
 const PAGE_TITLES = {
   '/':             'Gastro Clinic 27 – Expert Digestive Care in Shahjahanpur',
@@ -45,7 +86,7 @@ function ScrollToTop() {
       const timer = setTimeout(() => {
         const el = document.querySelector(hash);
         if (el) {
-          const navbarOffset = 130; // info banner (~40px) + sticky header (~90px)
+          const navbarOffset = 80; // info banner (~22px) + sticky header (~90px)
           const top = el.getBoundingClientRect().top + window.scrollY - navbarOffset;
           window.scrollTo({ top, behavior: 'smooth' });
         }
@@ -67,8 +108,10 @@ const pageVariants = {
 function AnimatedRoutes() {
   const location = useLocation();
   return (
+    
     <AnimatePresence mode="wait">
       <motion.div key={location.pathname} variants={pageVariants} initial="initial" animate="animate" exit="exit">
+        <Suspense fallback={<div className="min-h-screen" />}>
         <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -88,13 +131,20 @@ function AnimatedRoutes() {
             </div>
           } />
         </Routes>
+        </Suspense>
       </motion.div>
     </AnimatePresence>
+     
   );
 }
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
   return (
+      <>
+      <AnimatePresence>
+        {showSplash && <SplashScreen key="splash" onDone={() => setShowSplash(false)} />}
+      </AnimatePresence>
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScrollToTop />
       <TitleUpdater />
@@ -106,5 +156,6 @@ export default function App() {
         <DrVayuGuide />
       </div>
     </BrowserRouter>
+    </>
   );
 }

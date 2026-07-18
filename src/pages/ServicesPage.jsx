@@ -17,14 +17,14 @@ export default function ServicesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-primary-800 to-accent-800 py-14 sm:py-20 lg:py-24 overflow-hidden">
+      <section className="relative bg-[rgb(104,183,164)] py-14 sm:py-20 lg:py-24 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <Stethoscope className="w-4 h-4" /> Medical Services
             </span>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Our Medical Services</h1>
-            <p className="text-primary-200 text-base sm:text-xl max-w-xl mx-auto">
+            <p className="text-white/85 text-base sm:text-xl max-w-xl mx-auto">
               Comprehensive, evidence-based healthcare services delivered with compassion and expertise.
             </p>
           </motion.div>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-20 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {services.map((service, i) => {
@@ -71,7 +71,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-14">
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Choose Gastro Clinic 27?</h2>
@@ -81,7 +81,7 @@ export default function ServicesPage() {
             {[
               { title: 'Expert Laparoscopic Surgeons', desc: 'Our FMAS & FIAGES certified surgeons perform advanced laparoscopic procedures with minimal scarring and faster recovery.', icon: Shield, color: 'bg-blue-100 dark:bg-blue-950 text-blue-600' },
               { title: 'Affordable Gastro Care', desc: 'Quality specialized gastroenterology care at rates accessible to everyone in the Shahjahanpur region.', icon: Heart, color: 'bg-red-100 dark:bg-red-950 text-red-600' },
-              { title: 'Advanced Endoscopy', desc: 'Diagnostic and therapeutic endoscopy & colonoscopy for accurate diagnosis of all digestive conditions.', icon: Activity, color: 'bg-purple-100 dark:bg-purple-950 text-purple-600' },
+              { title: 'Advanced Endoscopy (Coming Soon)', desc: 'Diagnostic and therapeutic endoscopy & colonoscopy (coming soon) for accurate diagnosis of all digestive conditions.', icon: Activity, color: 'bg-purple-100 dark:bg-purple-950 text-purple-600' },
               { title: 'Diet & Lifestyle Guidance', desc: 'Personalized diet plans for IBS, fatty liver, post-surgery recovery, and other digestive conditions.', icon: CheckCircle, color: 'bg-green-100 dark:bg-green-950 text-green-600' },
             ].map((item, i) => {
               const Icon = item.icon;
@@ -100,12 +100,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-primary-600 to-primary-800">
+      <section className="py-16 bg-gradient-to-r from-[rgb(104,183,164)] to-primary-500">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="font-display text-3xl font-bold text-white mb-4">Start Your Gut Health Journey Today</h2>
-            <p className="text-primary-200 mb-8">Book an appointment at Gastro Clinic 27 and get expert, affordable gastro care close to home.</p>
-            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-white text-primary-700 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 transition-all shadow-xl hover:-translate-y-0.5">
+            <p className="text-white/85 mb-8">Book an appointment at Gastro Clinic 27 and get expert, affordable gastro care close to home.</p>
+            <Link to="/appointment#appointment-form" className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-xl shadow-primary-500/30 hover:-translate-y-0.5">
               Book Appointment <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

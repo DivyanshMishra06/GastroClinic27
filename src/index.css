@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply font-body bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-100;
+    @apply font-body bg-white dark:bg-primary-950 text-gray-800 dark:text-gray-100;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
@@ -19,23 +19,23 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-primary-600/25 hover:shadow-primary-600/40 hover:-translate-y-0.5 active:translate-y-0;
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-primary-500/30 hover:shadow-primary-600/40 hover:-translate-y-0.5 active:translate-y-0;
   }
-  
+
   .btn-secondary {
     @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:border-primary-300 hover:bg-primary-50 dark:hover:bg-gray-700 hover:-translate-y-0.5;
   }
-  
+
   .btn-outline {
-    @apply border-2 border-primary-600 text-primary-600 dark:text-primary-400 font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-primary-600 hover:text-white hover:-translate-y-0.5;
+    @apply border-2 border-primary-500 text-primary-500 dark:text-primary-400 font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:bg-primary-500 hover:text-white hover:-translate-y-0.5;
   }
 
   .card {
-    @apply bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden;
+    @apply bg-white dark:bg-primary-950/80 rounded-2xl shadow-sm border border-gray-100 dark:border-primary-900/60 overflow-hidden;
   }
 
   .section-tag {
-    @apply inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-950 text-primary-600 dark:text-primary-400 text-sm font-medium px-4 py-1.5 rounded-full mb-4;
+    @apply inline-flex items-center gap-2 bg-[rgba(104,183,164,0.15)] dark:bg-accent-950 text-accent-700 dark:text-accent-400 text-sm font-medium px-4 py-1.5 rounded-full mb-4;
   }
 
   .input-field {
@@ -43,7 +43,7 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary-500 to-accent-400 bg-clip-text text-transparent;
   }
 }
 
@@ -55,11 +55,11 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #93cffd;
+  background: #4ebcaa;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #60b3fa;
+  background: #2b90cf;
 }
 
 /* Smooth page transitions */

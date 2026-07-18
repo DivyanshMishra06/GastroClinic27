@@ -99,14 +99,14 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-700 py-14 sm:py-20 lg:py-24">
+      <section className="bg-[rgb(104,183,164)] py-14 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-white/80 text-sm mb-6">
               <MessageSquare className="w-4 h-4" /> Get in Touch
             </span>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Contact Us</h1>
-            <p className="text-primary-200 text-base sm:text-xl max-w-xl mx-auto">
+            <p className="text-white/85 text-base sm:text-xl max-w-xl mx-auto">
               We're here to help. Reach out via phone, email, WhatsApp, or visit any of our 5 clinics.
             </p>
           </motion.div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Cards */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+      <section className="py-16 bg-[rgba(104,183,164,0.12)] dark:bg-primary-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {[
@@ -229,7 +229,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white dark:bg-gray-950">
+      <section className="py-20 bg-white dark:bg-primary-950">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-12">
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
