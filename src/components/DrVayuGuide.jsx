@@ -1,18 +1,29 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { X, Send } from 'lucide-react';
+import { clinics } from '../data';
 
 const DOCTOR_IMG = '/images/doctor-cartoon.png';
+
+// Booking link always points at the site the patient is currently on
+// (localhost in dev, the deployed domain in production).
+const BOOKING_URL = `${window.location.origin}/appointment#appointment-form`;
+
+// Single source of truth for timings/phones — src/data/index.js, same as the
+// rest of the site, so the bot never quotes stale numbers.
+const CLINIC_LINES = clinics
+  .map(c => `- ${c.area}: ${c.timing} | Phone: ${c.phone}`)
+  .join('\n');
+const CLINIC_BOOKING_LINES = clinics
+  .map(c => `  - ${c.area} → ${c.timing} | ${c.phone}`)
+  .join('\n');
+const MAIN_CLINIC = clinics[0];
 
 const SYSTEM_PROMPT = `You are Dr. Vayu, a friendly AI health assistant for Gastro Clinic 27 in Shahjahanpur, U.P., India.
 
 Clinic locations and timings:
-- Shahjahanpur: Mon–Sat, 2:00–6:00 PM | Phone: +91 9795438953
-- Tilhar: Every Thursday, 10:00 AM–1:00 PM | Phone: +91 8004927277
-- Nigohi: Every Friday, 10:00 AM–1:00 PM | Phone: +91 7460838114
-- Shahabad: Every Tuesday, 10:00 AM–1:00 PM | Phone: +91 9214603865
-- Powayan: Every Sunday, 2:00–6:00 PM | Phone: +91 8853810978
+${CLINIC_LINES}
 
 Services offered:
 - Laparoscopic Surgery (gallbladder, hernia, appendix)
@@ -38,13 +49,29 @@ Rules:
 - Always end medical/symptom replies with a doctor consultation suggestion
 - Do not mention any doctor name, qualifications, or credentials
 - When responding in Hindi, use simple natural conversational Hindi. Do not translate English sentences word-by-word. Use short, everyday Hindi that a patient in U.P. would understand
-- When someone asks about booking an appointment, first ask: "Which city are you from?" Then based on their answer, reply with the nearest clinic timing, its phone number, and this booking link: https://healthcareorg.netlify.app/appointment#appointment-form
-  - Shahjahanpur → Mon–Sat 2–6 PM | +91 9795438953
-  - Tilhar → Every Thursday 10 AM–1 PM | +91 8004927277
-  - Nigohi → Every Friday 10 AM–1 PM | +91 7460838114
-  - Shahabad → Every Tuesday 10 AM–1 PM | +91 9214603865
-  - Powayan → Every Sunday 2–6 PM | +91 8853810978
-  - If city doesn't match any clinic → give Shahjahanpur as the main clinic and the booking link`;
+- When someone asks about booking an appointment, first ask: "Which city are you from?" Then based on their answer, reply with the nearest clinic timing, its phone number, and this booking link: ${BOOKING_URL}
+${CLINIC_BOOKING_LINES}
+  - If city doesn't match any clinic → give ${MAIN_CLINIC.area} as the main clinic and the booking link`;
+
+// Patient-facing fallback — never show raw API errors in the chat.
+const FRIENDLY_ERROR = `Sorry, I am unavailable right now. Please call ${MAIN_CLINIC.phone} for any help.`;
+
+// Free models get rate-limited or retired without notice — OpenRouter fails
+// over between these server-side. Only models verified NOT to leak
+// chain-of-thought into the reply (nemotron leaked through some providers).
+const FREE_MODELS = [
+  'google/gemma-4-26b-a4b-it:free',
+  'openai/gpt-oss-20b:free',
+  'meta-llama/llama-3.3-70b-instruct:free',
+];
+
+// Remove chain-of-thought a reasoning model may leak into the visible reply,
+// including a block left unclosed by max_tokens truncation.
+function stripReasoning(text) {
+  const cleaned = text.replace(/<think>[\s\S]*?<\/think>/g, '');
+  const open = cleaned.indexOf('<think>');
+  return (open === -1 ? cleaned : cleaned.slice(0, open)).trim();
+}
 
 
 function renderContent(text) {
@@ -52,15 +79,25 @@ function renderContent(text) {
   const parts = [];
   let lastIndex = 0;
   let match;
+  const linkClass = 'inline-flex items-center gap-1 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-lg mt-1 hover:bg-primary-600 transition-colors';
   while ((match = urlRegex.exec(text)) !== null) {
+    // Don't let sentence punctuation right after the URL become part of the link.
+    const url = match[0].replace(/[.,)!?।]+$/, '');
     if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
     parts.push(
-      <a key={match.index} href={match[0]} target="_blank" rel="noopener noreferrer"
-         className="inline-flex items-center gap-1 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-lg mt-1 hover:bg-primary-600 transition-colors">
-        Book Appointment →
-      </a>
+      // Same-origin links navigate in-app (no new tab / full reload);
+      // anything external still opens in a new tab.
+      url.startsWith(window.location.origin) ? (
+        <Link key={match.index} to={url.slice(window.location.origin.length)} className={linkClass}>
+          Book Appointment →
+        </Link>
+      ) : (
+        <a key={match.index} href={url} target="_blank" rel="noopener noreferrer" className={linkClass}>
+          Book Appointment →
+        </a>
+      )
     );
-    lastIndex = match.index + match[0].length;
+    lastIndex = match.index + url.length;
   }
   if (lastIndex < text.length) parts.push(text.slice(lastIndex));
   return parts.length ? parts : text;
@@ -127,7 +164,7 @@ export default function DrVayuGuide() {
     setLoading(true);
 
     try {
-      const groqMessages = [
+      const chatMessages = [
         { role: 'system', content: SYSTEM_PROMPT },
         ...messages
           .filter(m => m !== WELCOME_MSG)
@@ -138,33 +175,54 @@ export default function DrVayuGuide() {
         { role: 'user', content: userText },
       ];
 
-      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
-          'HTTP-Referer': 'https://gastroclinic27.com',
-          'X-Title': 'Gastro Clinic 27',
-        },
-        body: JSON.stringify({
-          model: 'openai/gpt-oss-120b:free',
-          messages: groqMessages,
-          max_tokens: 400,
-        }),
-      });
+      let reply = null;
+      // Two attempts; each request lets OpenRouter fail over between the
+      // models server-side (`models` array), so one round-trip covers
+      // retired/rate-limited/erroring models.
+      for (let attempt = 0; attempt < 2 && !reply; attempt++) {
+        try {
+          const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${apiKey}`,
+              'HTTP-Referer': 'https://gastroclinic27.com',
+              'X-Title': 'Gastro Clinic 27',
+            },
+            // Abandon a hung model instead of leaving the chat loading forever.
+            signal: AbortSignal.timeout(15000),
+            body: JSON.stringify({
+              models: FREE_MODELS,
+              messages: chatMessages,
+              // Hidden reasoning also consumes the token budget, so leave
+              // headroom or replies come back empty.
+              max_tokens: 600,
+              // Keep reasoning models' thinking out of the reply. (exclude, not
+              // enabled:false — gpt-oss-20b rejects disabling with a 400.)
+              reasoning: { exclude: true },
+            }),
+          });
 
-      const data = await res.json();
-      if (!res.ok) {
-        const errMsg = data.error?.message || `Error ${res.status}`;
-        setMessages(prev => [...prev, { role: 'model', content: `⚠️ ${errMsg}` }]);
-        return;
+          // Gateway errors can return non-JSON bodies — treat as a failed attempt.
+          const body = await res.json().catch(() => null);
+          if (!res.ok || !body) continue;
+          // An empty reply after stripping means the model spent the whole
+          // budget on reasoning → retry.
+          const content = stripReasoning(body.choices?.[0]?.message?.content || '');
+          if (content) reply = content;
+        } catch {
+          // Timeout or network error — retry once.
+        }
       }
-      const reply = data.choices[0].message.content;
-      setMessages(prev => [...prev, { role: 'model', content: reply }]);
-    } catch (err) {
+
       setMessages(prev => [
         ...prev,
-        { role: 'model', content: `⚠️ ${err.message}` },
+        { role: 'model', content: reply ?? `⚠️ ${FRIENDLY_ERROR}` },
+      ]);
+    } catch {
+      setMessages(prev => [
+        ...prev,
+        { role: 'model', content: `⚠️ ${FRIENDLY_ERROR}` },
       ]);
     } finally {
       setLoading(false);
