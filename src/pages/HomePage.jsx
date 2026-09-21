@@ -352,10 +352,10 @@ function AppointmentSection() {
   return (
     <section className="py-20 bg-white dark:bg-primary-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-stretch">
 
           {/* Left — Form */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col">
             <span className="section-tag"><Calendar className="w-4 h-4" /> Quick Booking</span>
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mt-4 mb-2">
               Book Your Appointment <span className="gradient-text">Online</span>
@@ -477,9 +477,35 @@ function AppointmentSection() {
                 </p>
               </form>
             )}
+
+            {/* OPD Timings */}
+            <div className="mt-auto bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
+                <Clock className="w-5 h-5 text-accent-500" /> OPD Schedule
+              </h3>
+              <div className="space-y-2">
+                {[
+                  { day: 'Mon – Sat', loc: 'Shahjahanpur', time: '2:00 PM – 6:00 PM' },
+                  { day: 'Tuesday',   loc: 'Shahabad',     time: '10:00 AM – 1:00 PM' },
+                  { day: 'Thursday',  loc: 'Tilhar',       time: '10:00 AM – 1:00 PM' },
+                  { day: 'Friday',    loc: 'Nigohi',       time: '10:00 AM – 1:00 PM' },
+                  { day: 'Sunday',    loc: 'Powayan',      time: '2:00 PM – 6:00 PM' },
+                ].map(({ day, loc, time }) => (
+                  <div key={loc} className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
+                    <div>
+                      <p className="text-xs font-semibold text-gray-900 dark:text-white">{loc}</p>
+                      <p className="text-xs text-gray-400">{day}</p>
+                    </div>
+                    <span className="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/50 px-2.5 py-1 rounded-lg">
+                      {time}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right — Consultation Image + Why Book + Timings */}
+          {/* Right — Consultation Image + Why Book */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -524,32 +550,6 @@ function AppointmentSection() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* OPD Timings */}
-            <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-              <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg mb-4 flex items-center gap-2">
-                <Clock className="w-5 h-5 text-accent-500" /> OPD Schedule
-              </h3>
-              <div className="space-y-2">
-                {[
-                  { day: 'Mon – Sat', loc: 'Shahjahanpur', time: '2:00 PM – 6:00 PM' },
-                  { day: 'Tuesday',   loc: 'Shahabad',     time: '10:00 AM – 1:00 PM' },
-                  { day: 'Thursday',  loc: 'Tilhar',       time: '10:00 AM – 1:00 PM' },
-                  { day: 'Friday',    loc: 'Nigohi',       time: '10:00 AM – 1:00 PM' },
-                  { day: 'Sunday',    loc: 'Powayan',      time: '2:00 PM – 6:00 PM' },
-                ].map(({ day, loc, time }) => (
-                  <div key={loc} className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-0">
-                    <div>
-                      <p className="text-xs font-semibold text-gray-900 dark:text-white">{loc}</p>
-                      <p className="text-xs text-gray-400">{day}</p>
-                    </div>
-                    <span className="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/50 px-2.5 py-1 rounded-lg">
-                      {time}
-                    </span>
-                  </div>
-                ))}
-              </div>
             </div>
           </motion.div>
 
