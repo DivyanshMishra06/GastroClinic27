@@ -166,7 +166,7 @@ export default function Footer() {
       <div className="border-t border-accent-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-500">
-            © {year} Gastro Clinic 27. All rights reserved. · Est. 2019 · Shahjahanpur, U.P.
+            © {year} Gastro Clinic 27 | GASTRO CLINIC 27 PRIVATE LIMITED. All rights reserved. · Est. 2019 · Shahjahanpur, U.P.
           </p>
           <div className="flex gap-4">
             <Link to="/privacy" className="text-xs text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</Link>
